@@ -1,0 +1,19 @@
+digraph ArbolAVl{rankdir=TB;
+
+graph [splines=compound, nodesep=0.5];
+
+node [shape=record, style=filled,fillcolor=seashell2,width=0.7,height=0.2];
+
+Aca[label="<C0>|Nombre: Aca&#92;n Extension: .h&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 546546|<C1>"];
+Caca[label="<C0>|Nombre: Caca&#92;n Extension: .h&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 546546|<C1>"];
+Caca->Aca
+Copo[label="<C0>|Nombre: Copo&#92;n Extension: .h&#92;n FE: 0&#92;n Altura: 3&#92;n TimeStamp: 546546|<C1>"];
+Copo->Edua
+Copo->Caca
+Edua[label="<C0>|Nombre: Edua&#92;n Extension: .h&#92;n FE: 0&#92;n Altura: 2&#92;n TimeStamp: 546546|<C1>"];
+Edua->Pofo
+Pofo[label="<C0>|Nombre: Pofo&#92;n Extension: .h&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 546546|<C1>"];
+Pofo->Powq
+Powq[label="<C0>|Nombre: Powq&#92;n Extension: .h&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 546546|<C1>"];
+}
+
