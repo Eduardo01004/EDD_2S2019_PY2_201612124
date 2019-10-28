@@ -1,0 +1,24 @@
+digraph G{
+node [shape = box]
+raiz[label="Matriz"  group=1];
+885951223 [label="F2" group = 1];
+1121172875 [label="C1" group = 1];
+60830820 [label="C2" group = 2];
+1121172875->60830820[dir=both];
+raiz ->885951223
+raiz ->1121172875
+{ rank  = same; raiz 
+1121172875;
+60830820;
+}
+1358444045 [style=filled,fillcolor=seashell2,label= "pito" group = 3 ];
+1725097945 [style=filled,fillcolor=seashell2,label= "ppopo" group = 4 ];
+885951223->1358444045
+1358444045->1725097945[dir=both];
+{ rank = same; 885951223;
+1358444045;
+1725097945;
+}
+1121172875->1358444045[dir=both];
+60830820->1725097945[dir=both];
+}
