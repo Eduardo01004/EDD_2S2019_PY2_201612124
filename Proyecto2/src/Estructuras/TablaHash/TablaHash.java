@@ -25,7 +25,7 @@ public class TablaHash {
         this.tamanos = new int[]{7,11,13,19,21,23,27,29,31,33,39,41,43,49,51, 53, 59, 61, 67, 71, 73, 79, 81};//tamaño inicial
         this.indiceTam = 0;
         this.ocupados = 0;
-        this.factorUtil = 80.00f;//para hacer rehashing
+        this.factorUtil = 75.00f;//para hacer rehashing
         this.tamano = tamanos[indiceTam];//toma el valor del vector este comienza en 7
         this.vectorHash = new NodoHash[tamano];//creo el vector con 7 de tamano
         this.porcentajeUtil = calcularPorcentajeUtil();
@@ -51,7 +51,6 @@ public class TablaHash {
            System.out.println(character+" = "+ ascii); // print the character and it's value in ascii
         }
         System.out.println(" total "+total);
-
         return total;
     }
     
@@ -60,7 +59,7 @@ public class TablaHash {
     public void insertar(String nombre,String password) {
         boolean insertado = false;
 
-        if (porcentajeUtil <= 75.00f) {///por el desbordamiento del 50% para que haga que crezca la tabla hash
+        if (porcentajeUtil <= 75.00f) {///por el desbordamiento del 75% para que haga que crezca la tabla hash
             int posicion = hash2(nombre);
             if (posicion > tamano) {//si el tamaño es mayor a la posision se le resta al tamaño osea da una ciclo 
                 posicion -= tamano; // y lo inserta                
@@ -176,7 +175,7 @@ public class TablaHash {
                 cmd[4]=fileOutPath;
                 Runtime rt = Runtime.getRuntime();
                 rt.exec(cmd);
-                rt.exec("HashTable.png");
+                //rt.exec("HashTable.png");
 
             } catch (Exception ex) {
                 ex.printStackTrace();
