@@ -56,7 +56,7 @@ public class TablaHash {
     
 
     
-    public void insertar(String nombre,String password) {
+    public void insertar(String nombre,String password,String time) {
         boolean insertado = false;
 
         if (porcentajeUtil <= 75.00f) {///por el desbordamiento del 75% para que haga que crezca la tabla hash
@@ -66,7 +66,7 @@ public class TablaHash {
             }   
             if (vectorHash[posicion] == null || vectorHash[posicion].estado == 'b') {//datos nulos y borrados y ocupados se ingresa el dato 
                 //a un nuevo nodo hash
-                vectorHash[posicion] = new NodoHash( nombre,password);
+                vectorHash[posicion] = new NodoHash( nombre,password,time);
                 ocupados += 1;
                 porcentajeUtil = calcularPorcentajeUtil();
                 insertado = true;
@@ -82,7 +82,7 @@ public class TablaHash {
                             posicionActual = i;
                         }
                         if (posicionActual < tamano && validarDisponibilidadColision(posicionActual)) {
-                            vectorHash[posicionActual] = new NodoHash(nombre,password);
+                            vectorHash[posicionActual] = new NodoHash(nombre,password,time);
                             ocupados += 1;//suma uno a ocupados 
                             porcentajeUtil = calcularPorcentajeUtil();//no sobrepase el 50%
                             insertado = true;
@@ -101,7 +101,7 @@ public class TablaHash {
         } else {
             System.out.println("Hacer Rehashing -> Porcentaje util: " + porcentajeUtil);            
             rehashing();
-            insertar(nombre,password);
+            insertar(nombre,password,time);
         }
     }
     public boolean validarDisponibilidadColision(int posicion) {
@@ -125,12 +125,29 @@ public class TablaHash {
         porcentajeUtil = calcularPorcentajeUtil();
         for (int i = 0; i < tamanoTmp; i++) {// se va insertando el nodo hash con el arreglo aumentado de tamano
             if (tmp[i] != null) {
-                insertar(tmp[i].nombre,tmp[i].password);
+                insertar(tmp[i].nombre,tmp[i].password,tmp[i].time);
             }
         }
         System.out.println("Rehashing realizado correctamente");
     }
-    
+    int pos = 0;
+    public boolean buscarNodo(String codigo) {
+        boolean encontrado = false;
+        NodoHash tmp = null;
+
+        for (int i = 0; i < tamano; i++) {
+            if (vectorHash[i] != null) {
+                if (vectorHash[i].nombre.equals(codigo)) {
+                    encontrado = true;
+                    pos = i;
+                    break;
+                }
+            } else {
+            }
+        }
+
+        return encontrado;
+    }
     
     
     
@@ -153,7 +170,7 @@ public class TablaHash {
             }    ///fin for datos hash   
             for (int i = 0; i < vectorHash.length; i++) {
                 if (vectorHash[i] != null) {
-                    pw.println("nodo" + vectorHash[i].nombre + " [label= \"" +  "Nombre: "+vectorHash[i].nombre + " " + "Password: "+vectorHash[i].password+ "\"];");
+                    pw.println("nodo" + vectorHash[i].nombre + " [label= \"" +  "Nombre: "+vectorHash[i].nombre + " " + "Password: "+vectorHash[i].password+" TimeStamp: "+vectorHash[i].time +"\"];");
                     pw.println("\"nodeTable\":f" + i + " -> nodo" + vectorHash[i].nombre);
                 }
             }

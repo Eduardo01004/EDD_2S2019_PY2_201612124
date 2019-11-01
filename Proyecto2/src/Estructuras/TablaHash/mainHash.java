@@ -13,8 +13,8 @@ public class mainHash {
     static TablaHash tabla = new TablaHash();
 	public  static void main(String[] args)  {
             tabla=new TablaHash();
-            tabla.insertar("Eduardo","pus");
-	    tabla.insertar("Saul", "sdas");
+            tabla.insertar("Eduardo","pus","sds");
+	    tabla.insertar("Saul", "sdas","sda");
 	    tabla.generarDotTablaHash();
             //tabla.extraerNodo("Eduardo");
 	    }

@@ -5,6 +5,12 @@
  */
 package Forms;
 
+import Estructuras.TablaHash.TablaHash;
+import javax.swing.JOptionPane;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Eduardo
@@ -14,6 +20,8 @@ public class Registrar_Usuario extends javax.swing.JFrame {
     /**
      * Creates new form Registrar_Usuario
      */
+    Carga_Masiva carga;
+    Date date = new Date();
     public Registrar_Usuario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -46,6 +54,11 @@ public class Registrar_Usuario extends javax.swing.JFrame {
         jLabel2.setText("Password");
 
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Exit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,9 +127,31 @@ public class Registrar_Usuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        String user=(txrRegistro_user.getText());
+        String contra=(txtRegistro_password.getText());
+        DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+        if (carga.tabla.buscarNodo(user) == true){
+            JOptionPane.showMessageDialog(null, "El Usuario "+ user+" Ya existe");
+        }else if(contra.length() < 8){
+            JOptionPane.showMessageDialog(null, "La contraseña es menor a 8 caraceres");
+        }
+        else{
+            carga.tabla.insertar(user, contra,hourdateFormat.format(date));
+            JOptionPane.showMessageDialog(null, "El usuario "+user+" Se agrego correctamente");
+            carga.tabla.generarDotTablaHash();
+        }
+        user="";
+        contra="";
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

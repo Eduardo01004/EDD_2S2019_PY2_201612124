@@ -13,10 +13,12 @@ public class NodoHash {
     public String nombre;
     public String password;
     public char estado;
+    public String time;
 
-    public NodoHash(String nombre, String password) {
+    public NodoHash(String nombre, String password,String time) {
         this.nombre = nombre;
         this.password = password;
+        this.time = time;
     }
 
     public String getNombre() {
@@ -41,6 +43,14 @@ public class NodoHash {
 
     public void setEstado(char estado) {
         this.estado = estado;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
     
     

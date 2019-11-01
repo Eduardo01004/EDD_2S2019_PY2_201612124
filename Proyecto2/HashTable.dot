@@ -7,23 +7,7 @@ nodeTable [label = "
 <f3> 3 | 
 <f4> 4 | 
 <f5> 5 | 
-<f6> 6 | 
-<f7> 7 | 
-<f8> 8 | 
-<f9> 9 | 
-<f10> 10"];
-nodoEduardo123 [label= "Nombre: Eduardo123 Password: 12345678"];
-"nodeTable":f0 -> nodoEduardo123
-nodoRicardo123 [label= "Nombre: Ricardo123 Password: OtraContrasena"];
-"nodeTable":f1 -> nodoRicardo123
-nodoDennis [label= "Nombre: Dennis Password: EddSeccionC"];
-"nodeTable":f4 -> nodoDennis
-nodoPedro456 [label= "Nombre: Pedro456 Password: Yhsnkdhfmndf"];
-"nodeTable":f5 -> nodoPedro456
-nodopopo [label= "Nombre: popo Password: slkdjflajsldkjalks"];
-"nodeTable":f6 -> nodopopo
-nodoJuan123 [label= "Nombre: Juan123 Password: MiContrasena123"];
-"nodeTable":f9 -> nodoJuan123
-nodoAntonio24 [label= "Nombre: Antonio24 Password: EddSeccionB"];
-"nodeTable":f10 -> nodoAntonio24
+<f6> 6"];
+nodoJoto [label= "Nombre: Joto Password: 4546465465TimeStamp: 20:53:56 31/10/2019"];
+"nodeTable":f6 -> nodoJoto
 }
