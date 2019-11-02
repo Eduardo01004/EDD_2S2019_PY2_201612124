@@ -25,7 +25,7 @@ public class TablaHash {
         this.tamanos = new int[]{7,11,13,19,21,23,27,29,31,33,39,41,43,49,51, 53, 59, 61, 67, 71, 73, 79, 81};//tamaño inicial
         this.indiceTam = 0;
         this.ocupados = 0;
-        this.factorUtil = 75.00f;//para hacer rehashing
+        this.factorUtil = 75.0f;//para hacer rehashing
         this.tamano = tamanos[indiceTam];//toma el valor del vector este comienza en 7
         this.vectorHash = new NodoHash[tamano];//creo el vector con 7 de tamano
         this.porcentajeUtil = calcularPorcentajeUtil();
@@ -130,14 +130,31 @@ public class TablaHash {
         }
         System.out.println("Rehashing realizado correctamente");
     }
-    int pos = 0;
+    
     public boolean buscarNodo(String codigo) {
         boolean encontrado = false;
         NodoHash tmp = null;
-
+        int pos = 0;
         for (int i = 0; i < tamano; i++) {
             if (vectorHash[i] != null) {
                 if (vectorHash[i].nombre.equals(codigo)) {
+                    encontrado = true;
+                    pos = i;
+                    break;
+                }
+            } else {
+            }
+        }
+
+        return encontrado;
+    }
+    public boolean LoginUser(String codigo,String pass) {
+        boolean encontrado = false;
+        NodoHash tmp = null;
+        int pos = 0;
+        for (int i = 0; i < tamano; i++) {
+            if (vectorHash[i] != null) {
+                if (vectorHash[i].nombre.equals(codigo) && vectorHash[i].password.equals(pass)) {
                     encontrado = true;
                     pos = i;
                     break;

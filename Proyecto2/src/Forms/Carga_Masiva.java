@@ -14,6 +14,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -171,47 +174,60 @@ public class Carga_Masiva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try
-  {
-   JFileChooser file=new JFileChooser();
-   file.showOpenDialog(this);
-   File abre=file.getSelectedFile();
-    DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-   if (abre != null){
-      CsvReader leerUser=new CsvReader(abre.toString());
-      leerUser.readHeaders();
-      while (leerUser.readRecord()){
-        //System.out.println("Nombre: "+leerUser.get(0));
-        //System.out.println("Password: "+leerUser.get(1));
-        if(leerUser.get(1).length() < 8){
-            System.out.println(leerUser.get(0)+ "Password menor a 8 caracteres ");
-            jTextArea2.append(leerUser.get(0)+ " Password menor a 8 caracteres \n");
-        }else if(tabla.buscarNodo(leerUser.get(0)) == true){
-            System.out.println(leerUser.get(0)+ "Ya existe ");
-            jTextArea2.append(leerUser.get(0)+ " Ya existe\n\n");
-        }
-        else{
-            tabla.insertar(leerUser.get(0), leerUser.get(1),hourdateFormat.format(date));
-            jTextArea1.append(leerUser.get(0)+" Se inserto Correctamente \n\n");
-        }
-      }
-      leerUser.close();
-   }  
-   tabla.generarDotTablaHash();
-      
-     
-   }
-   catch(IOException ex)
-   {
-     JOptionPane.showMessageDialog(null,ex+"" +
-           "\nNo se ha encontrado el archivo",
-                 "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
-    }
-        
-   
-   
+        try{
+            JFileChooser file=new JFileChooser();
+            file.showOpenDialog(this);
+            File abre=file.getSelectedFile();
+            DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+            if (abre != null){
+               CsvReader leerUser=new CsvReader(abre.toString());
+               leerUser.readHeaders();
+               while (leerUser.readRecord()){
+                    if(leerUser.get(1).length() < 8){
+                        System.out.println(leerUser.get(0)+ "Password menor a 8 caracteres ");
+                        jTextArea2.append(leerUser.get(0)+ " Password menor a 8 caracteres \n");
+                    }else if(tabla.buscarNodo(leerUser.get(0)) == true){
+                        System.out.println(leerUser.get(0)+ "Ya existe ");
+                        jTextArea2.append(leerUser.get(0)+ " Ya existe\n\n");
+                    }
+                    else{
+                        System.out.println(sha256(leerUser.get(0)));
+                        tabla.insertar(leerUser.get(0), sha256(leerUser.get(1)),hourdateFormat.format(date));
+                        jTextArea1.append(leerUser.get(0)+" Se inserto Correctamente \n\n");
+                    }
+               }
+               leerUser.close();
+            }  
+            tabla.generarDotTablaHash();
+
+
+            }
+            catch(IOException ex)
+            {
+              JOptionPane.showMessageDialog(null,ex+"" +
+                    "\nNo se ha encontrado el archivo",
+                          "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
+             }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    public static String sha256(String base) {
+    try{
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(base.getBytes("UTF-8"));
+        StringBuffer hexString = new StringBuffer();
+
+        for (int i = 0; i < hash.length; i++) {
+            String hex = Integer.toHexString(0xff & hash[i]);
+            if(hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+
+        return hexString.toString();
+    } catch(Exception ex){
+       throw new RuntimeException(ex);
+    }
+}
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Reportes login = new Reportes();

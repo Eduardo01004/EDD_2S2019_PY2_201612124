@@ -6,6 +6,7 @@
 package Forms;
 
 import Estructuras.TablaHash.TablaHash;
+import java.security.MessageDigest;
 import javax.swing.JOptionPane;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -138,7 +139,7 @@ public class Registrar_Usuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La contraseña es menor a 8 caraceres");
         }
         else{
-            carga.tabla.insertar(user, contra,hourdateFormat.format(date));
+            carga.tabla.insertar(user, sha256(contra),hourdateFormat.format(date));
             JOptionPane.showMessageDialog(null, "El usuario "+user+" Se agrego correctamente");
             carga.tabla.generarDotTablaHash();
         }
@@ -150,6 +151,23 @@ public class Registrar_Usuario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public static String sha256(String base) {
+    try{
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(base.getBytes("UTF-8"));
+        StringBuffer hexString = new StringBuffer();
+
+        for (int i = 0; i < hash.length; i++) {
+            String hex = Integer.toHexString(0xff & hash[i]);
+            if(hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+
+        return hexString.toString();
+    } catch(Exception ex){
+       throw new RuntimeException(ex);
+    }
+}
     
     
     public static void main(String args[]) {
