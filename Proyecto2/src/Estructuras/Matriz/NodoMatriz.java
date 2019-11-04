@@ -10,37 +10,36 @@ package Estructuras.Matriz;
  * @author Eduardo
  */
 public class NodoMatriz {
-    public int x;
-    public int y;
+    public String x;
+    public String y;
     public String carpeta;
     public NodoMatriz siguiente;
     public NodoMatriz atras;
     public NodoMatriz arriba;
     public NodoMatriz abajo;
 
-    public NodoMatriz(int x, int y, String carpeta) {
+    public NodoMatriz(String x, String y) {
         this.x = x;
         this.y = y;
-        this.carpeta = carpeta;
         this.abajo = null;
         this.arriba = null;
         this.siguiente = null;
         this.atras = null;
     }
 
-    public int getX() {
+    public String getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(String x) {
         this.x = x;
     }
 
-    public int getY() {
+    public String getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(String y) {
         this.y = y;
     }
 

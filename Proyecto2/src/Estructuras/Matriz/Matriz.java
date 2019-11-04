@@ -24,59 +24,24 @@ public class Matriz {
         this.firstF=null;
         this.lastColum=null;
     }
-    
-    
-    public void ExisteX(int coorx,String carpeta){
-        boolean estado=true;
-        boolean flag=false;
-        Cabecera temporal=firstColum;
-        if (firstColum != null){
-            Cabecera cabeza=new Cabecera();
-            cabeza.numero=coorx;
-            cabeza.primero=null;
-            cabeza.siguiente=null;
-            firstColum=cabeza;
-            lastColum=cabeza;
+    public int CodigoASCIINombre(String nombre) {
+        int nombretamano=nombre.length();;
+        int total=0;
+        for (int a=0; a<nombretamano; a++) {
+            char character = nombre.charAt(a); // start on the first character
+            int ascii = (int) character; //convert the first character
+            total=total+ascii; 
         }
-        else{
-            Cabecera nuevo = new Cabecera();
-            nuevo.numero=coorx;
-            nuevo.primero=null;
-            if(coorx < firstColum.numero){
-                nuevo.anterior=nuevo;
-                nuevo.siguiente=firstColum;
-                firstColum=firstColum.anterior;
-            }
-            else if(coorx > lastColum.numero){  
-                lastColum.siguiente=nuevo;
-                nuevo.anterior=lastColum;
-                lastColum=lastColum.siguiente;
-            }
-            else{
-                Cabecera temp=firstColum;
-                Cabecera temp2;
-                while(coorx < temp.numero){
-                    temp=temp.siguiente;
-                }
-                
-                temp2=temp.anterior;
-                temp.anterior=nuevo;
-                nuevo.siguiente=temp;
-                nuevo.anterior=temp2;
-            }
-            
-        }
-        
+        return total;
     }
-   
-    public void existeX(int x,String carpeta){
+    public void existeX(String carpeta){
         boolean estado=true;
         boolean encontrado=false;
         Cabecera temp=firstColum;
         //----------------------------------Si esta vacia la cabecera--------------------------------------
         if(firstColum == null){
            Cabecera nuevo=new Cabecera();
-            nuevo.numero=x;
+           nuevo.numero=1;
             nuevo.carpeta=carpeta;
             nuevo.primero=null;
             nuevo.siguiente=null;
@@ -85,8 +50,9 @@ public class Matriz {
         }else{
             while(estado==true){
                 if(temp!=null){
-                    if(temp.numero == x){
+                    if(temp.carpeta.compareTo(carpeta) == 0){
                         estado=false;
+                        temp.numero++;
                         encontrado=true;
                     }else{
                         temp=temp.siguiente;
@@ -99,13 +65,13 @@ public class Matriz {
 
             if(encontrado==false){
                 Cabecera nuevo=new Cabecera();
-                nuevo.numero=x;
                 nuevo.carpeta=carpeta;
                 nuevo.primero=null;
-                if(x < firstColum.numero){
+                nuevo.numero=nuevo.numero+1;
+                if(carpeta.compareTo(firstColum.carpeta) < 0 ){
                     nuevo.siguiente=firstColum;
                     firstColum=nuevo;
-                }else if(x > lastColum.numero){
+                }else if(carpeta.compareTo(lastColum.carpeta) > 0){
                     lastColum.siguiente=nuevo;
                     nuevo.siguiente=null;
                     lastColum=nuevo;
@@ -114,7 +80,7 @@ public class Matriz {
                     estado=true;
                     while(estado){
                         if(temp.siguiente!=null){
-                            if(x<temp.siguiente.numero){
+                            if(carpeta.compareTo(temp.siguiente.carpeta) < 0){
                               estado=false;
                             }else{
                                 temp=temp.siguiente;
@@ -133,22 +99,22 @@ public class Matriz {
         }
     }
     
-    public void existeY(int y,String carpeta){
+    public void existeY(String carpeta){
         boolean estado=true;
         boolean encontrado=false;
         Cabecera temp=firstF;
         if(firstF == null){
            Cabecera nuevo=new Cabecera();
-            nuevo.numero=y;
             nuevo.carpeta=carpeta;
             nuevo.primero=null;
             nuevo.siguiente=null;
+            nuevo.numero=1;
             firstF=nuevo;
             LastF=nuevo;
         }else{
             while(estado==true){
                 if(temp!=null){
-                    if(temp.numero == y){
+                    if(carpeta.compareTo(temp.carpeta) == 0){
                         estado=false;
                         encontrado=true;
                     }else{
@@ -162,13 +128,13 @@ public class Matriz {
 
             if(encontrado==false){
                 Cabecera nuevo=new Cabecera();
-                nuevo.numero=y;
                 nuevo.carpeta=carpeta;
+                nuevo.numero=nuevo.numero+1;
                 nuevo.primero=null;
-                if(y < firstF.numero){
+                if(carpeta.compareTo(firstF.carpeta) < 0){
                     nuevo.siguiente=firstF;
                     firstF=nuevo;
-                }else if(y > LastF.numero){
+                }else if(carpeta.compareTo(LastF.carpeta) > 0){
                     LastF.siguiente=nuevo;
                     nuevo.siguiente=null;
                     LastF=nuevo;
@@ -177,7 +143,7 @@ public class Matriz {
                     estado=true;
                     while(estado){
                         if(temp.siguiente!=null){
-                            if(y < temp.siguiente.numero){
+                            if(carpeta.compareTo(temp.siguiente.carpeta) < 0){
                               estado=false;
                             }else{
                                 temp=temp.siguiente;
@@ -197,21 +163,20 @@ public class Matriz {
     }
     
     
-     public void guardarMatriz(int a, int b,String carpeta){
-        
+     public void guardarMatriz(String CarpetaA, String Carpetab){
         Cabecera auxma=firstColum;
         Cabecera aux2=firstF;
         boolean estado;
         boolean encontrado=false;
         if(auxma!=null){
-        while(auxma.numero!=a){
+        while(auxma.carpeta.compareTo(CarpetaA) != 0){
             auxma=auxma.siguiente;
         }
-        while(aux2.numero!=b){
+        while(aux2.carpeta.compareTo(Carpetab) != 0){
             aux2=aux2.siguiente;
         }
         
-       NodoMatriz mat=new NodoMatriz(a,b,carpeta);//string curso
+       NodoMatriz mat=new NodoMatriz(CarpetaA,Carpetab);
        NodoMatriz temp;
         
         if(auxma.primero==null){
@@ -223,7 +188,7 @@ public class Matriz {
             estado=true;
             while(estado==true){
                 if(nodoma!=null){
-                    if(nodoma.y==b){
+                    if(nodoma.y.compareTo(Carpetab) == 0){
                         estado=false;
                         encontrado=true;
                     }else{
@@ -234,14 +199,13 @@ public class Matriz {
                     encontrado=false;
                 }
             }
-           //------------------------------------if de encontrado-----------------------------
             if(encontrado==false){
-                if(b<auxma.primero.y){
+                if(Carpetab.compareTo(auxma.primero.y) < 0){
                     mat.atras=null;
                     mat.siguiente=auxma.primero;
                     auxma.primero.atras=mat;
                     auxma.primero=mat;
-                }else if(b>auxma.ultimo.y){
+                }else if(Carpetab.compareTo(auxma.ultimo.y) > 0){
                     mat.siguiente=null;
                     mat.atras=auxma.ultimo;
                     auxma.ultimo.siguiente=mat;
@@ -252,7 +216,7 @@ public class Matriz {
                     estado=true;
                     while(estado){
                         if(temp.siguiente!=null){
-                            if(b<temp.siguiente.y){
+                            if(Carpetab.compareTo(temp.siguiente.y) < 0){
                               estado=false;
                             }else{
                                 temp=temp.siguiente;
@@ -266,13 +230,7 @@ public class Matriz {
                     mat.siguiente=nodoauxiliar;
                 }
             }
-
-
-
         }
-        
-
-        //-----------------------------------posicion en Y-------------------------------------------
         if(aux2.primero==null){
            mat.arriba=null;
            aux2.primero=mat;
@@ -283,7 +241,7 @@ public class Matriz {
             encontrado=false;
             while(estado==true){
                 if(nodoma!=null){
-                    if(nodoma.x==a){
+                    if(nodoma.x.compareTo(CarpetaA) == 0){
                         estado=false;
                         encontrado=true;
                     }else{
@@ -294,14 +252,13 @@ public class Matriz {
                     encontrado=false;
                 }
             }
-            //------------------------------------if de encontrado-----------------------------
              if(encontrado==false){
-                 if(a<aux2.primero.x){
+                 if(CarpetaA.compareTo(aux2.primero.x) < 0){
                      mat.abajo=null;
                      mat.arriba=aux2.primero;
                      aux2.primero.abajo=mat;
                      aux2.primero=mat;
-                 }else if(a>aux2.ultimo.x){
+                 }else if(CarpetaA.compareTo(aux2.ultimo.x) > 0){
                      mat.arriba=null;
                      mat.abajo=aux2.ultimo;
                      aux2.ultimo.arriba=mat;
@@ -312,7 +269,7 @@ public class Matriz {
                      estado=true;
                      while(estado){
                          if(temp.arriba!=null){
-                             if(a<temp.arriba.x){
+                             if(CarpetaA.compareTo(temp.arriba.x) < 0){
                                estado=false;
                              }else{
                                  temp=temp.arriba;
@@ -331,13 +288,11 @@ public class Matriz {
         }
         }
         }
-
-     
-   public void Insertar(int a,int b,String archivo){
-       existeX(a, archivo);
+   public void Insertar(String a,String b){
+       existeX(a);
        //ExisteX(a, archivo);
-       existeY(b, archivo);
-       guardarMatriz(a, b, archivo);
+       existeY(b);
+       guardarMatriz(a, b);
        
    }
    public void Graficar(){
@@ -353,7 +308,7 @@ public class Matriz {
            pw.println("raiz[label=\"Matriz\"  group=1];");
            if (aux != null){
                while(aux != null){
-                   pw.println(aux.hashCode()+" [label=\"F"+aux.numero+"\" group = 1];");
+                   pw.println(aux.hashCode()+" [label=\""+aux.carpeta+"\" group = 1];");
                    aux=aux.siguiente;
                }
                aux=firstF;
@@ -365,19 +320,17 @@ public class Matriz {
                }
                
                while(aux2 != null){
-                   int level = aux2.numero;
-                   pw.println(aux2.hashCode()+" [label=\"C"+aux2.numero+"\" group = " +level+"];");
+                   int level = CodigoASCIINombre(aux2.carpeta)+2;
+                   pw.println(aux2.hashCode()+" [label=\""+aux2.carpeta+"\" group = " +level+"];");
                    aux2=aux2.siguiente;
                }
                aux2=firstColum;
                while(aux2 != null){
                    if(aux2.siguiente != null){
                        pw.println(aux2.hashCode()+"->"+aux2.siguiente.hashCode()+"[dir=both];");
-                       
                    }
                    aux2=aux2.siguiente;
-               }
-               
+               }              
                aux=firstF;
                aux2=firstColum;
                pw.println("raiz ->"+aux.hashCode());
@@ -390,11 +343,11 @@ public class Matriz {
                pw.println("}");
                aux2=firstColum;
                while(aux2 != null){
-                   int level=aux2.numero+2;
+                   int level=CodigoASCIINombre(aux2.carpeta)+2;
                    NodoMatriz temp=aux2.primero;
                    if(temp != null){
                        while(temp != null){
-                           pw.println(temp.hashCode()+" [style=filled,fillcolor=seashell2,label= \""+temp.carpeta+"\" group = "+level+" ];");
+                           pw.println(temp.hashCode()+" [style=filled,fillcolor=seashell2,label= \""+temp.y+"/"+temp.x+"\" group = "+level+" ];");
                            temp=temp.siguiente;
                        }
                    }
@@ -435,16 +388,13 @@ public class Matriz {
                
                
            }
-           
            pw.println("}");
            fichero.close();
            String doPath="C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
            String fileInputPath = "Matriz.dot";
            String fileOutPath = "Matriz.jpg";
-
            String tParam = "-Tjpg";
            String toParam = "-o";
-
            String[] cmd = new String[5];
            cmd[0] = doPath;
            cmd[1] = tParam;
