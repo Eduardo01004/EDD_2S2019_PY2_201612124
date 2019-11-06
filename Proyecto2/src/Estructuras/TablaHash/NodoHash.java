@@ -5,6 +5,8 @@
  */
 package Estructuras.TablaHash;
 
+import Estructuras.Matriz.Matriz;
+
 /**
  *
  * @author Eduardo
@@ -14,13 +16,14 @@ public class NodoHash {
     public String password;
     public char estado;
     public String time;
+    public Matriz matriz;
 
     public NodoHash(String nombre, String password,String time) {
         this.nombre = nombre;
         this.password = password;
         this.time = time;
+        this.matriz= new Matriz();
     }
-
     public String getNombre() {
         return nombre;
     }

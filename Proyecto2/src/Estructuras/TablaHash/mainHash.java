@@ -16,6 +16,30 @@ public class mainHash {
             tabla.insertar("Eduardo","pus","sds");
 	    tabla.insertar("Saul", "sdas","sda");
 	    tabla.generarDotTablaHash();
+            NodoHash nodo=tabla.extraerNodo("Saul");
+            if (nodo != null){
+                nodo.matriz.existeX("/");
+                nodo.matriz.existeY("/");
+                nodo.matriz.existeX("home");
+                nodo.matriz.existeY("home");
+                nodo.matriz.existeX("documents");
+                nodo.matriz.existeY("documents");
+                nodo.matriz.existeX("usac");
+                nodo.matriz.existeY("usac");
+                nodo.matriz.existeX("vendor");
+                nodo.matriz.existeY("vendor");
+                nodo.matriz.existeX("view");
+                nodo.matriz.existeY("view");
+                nodo.matriz.guardarMatriz("home", "/");
+                nodo.matriz.guardarMatriz("documents", "home");
+                nodo.matriz.guardarMatriz("usac", "documents");
+                nodo.matriz.guardarMatriz("vendor", "documents");
+                nodo.matriz.guardarMatriz("view", "vendor");
+                nodo.matriz.Graficar();
+            }
+            
+            
+            
             //tabla.extraerNodo("Eduardo");
 	    }
         

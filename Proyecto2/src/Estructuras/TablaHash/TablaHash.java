@@ -130,6 +130,34 @@ public class TablaHash {
         }
         System.out.println("Rehashing realizado correctamente");
     }
+    public NodoHash extraerNodo(String codigo) {
+        boolean encontrado = false;
+        NodoHash tmp = null;
+        int pos = 0;
+        for (int i = 0; i < tamano; i++) {
+            int posicion = hash2(codigo);
+            if (posicion >= tamano) {
+                posicion -= tamano;
+                pos = posicion;
+            }
+            if (vectorHash[posicion] != null) {
+                if (vectorHash[posicion].nombre.equals(codigo)) {
+                    tmp = vectorHash[posicion];
+                    pos = posicion;
+                System.out.println("pisic"+posicion);
+                    encontrado = true;
+                    break;
+                }
+
+            }
+        }
+        if (encontrado) {
+            System.out.println("Se encontro la variable en la posicion " + pos);
+        } else {
+            System.out.println("La variable " + codigo + "no se encuentra en la tabla");
+        }
+        return tmp;
+    }
     
     public boolean buscarNodo(String codigo) {
         boolean encontrado = false;
@@ -143,6 +171,7 @@ public class TablaHash {
                     break;
                 }
             } else {
+                
             }
         }
 

@@ -125,7 +125,6 @@ public class Matriz {
                     encontrado=false;
                 }
             }
-
             if(encontrado==false){
                 Cabecera nuevo=new Cabecera();
                 nuevo.carpeta=carpeta;
@@ -161,8 +160,6 @@ public class Matriz {
             }
         }
     }
-    
-    
      public void guardarMatriz(String CarpetaA, String Carpetab){
         Cabecera auxma=firstColum;
         Cabecera aux2=firstF;

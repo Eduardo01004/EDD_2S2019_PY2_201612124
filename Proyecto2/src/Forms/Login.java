@@ -18,6 +18,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     Carga_Masiva carga;
+    public static String name="";
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -150,15 +151,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_registrarActionPerformed
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
-        String user=Text_User.getText();
+        name=Text_User.getText();
         String pass=Text_Password.getText();
-        Verificar_Admin(user, pass);  
+        Verificar_Admin(name, pass);  
     }//GEN-LAST:event_btn_ingresarActionPerformed
     
     public void Verificar_Admin(String user, String pass){
         if (user.isEmpty() || pass.isEmpty()){
             JOptionPane.showMessageDialog(null, "Algun Campo esta vacio");
-            
         }else{
             if (user.equals("Admin") && pass.equals("Admin")){
                 JOptionPane.showMessageDialog(null, "Bienvenido: "+user);
@@ -231,7 +231,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Text_Password;
-    private javax.swing.JTextField Text_User;
+    public javax.swing.JTextField Text_User;
     private javax.swing.JButton btn_ingresar;
     private javax.swing.JButton btn_registrar;
     private javax.swing.JLabel jLabel1;
