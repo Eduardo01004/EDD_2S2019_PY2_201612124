@@ -20,10 +20,11 @@ public class Crear_Carpeta extends javax.swing.JFrame {
      */
     Carga_Masiva carga;
     Login log;
-   public NodoHash nodo=carga.tabla.extraerNodo(log.name);
+    public NodoHash nodo=carga.tabla.extraerNodo(log.name);
     public Crear_Carpeta() {
         initComponents();
         InsertarRaiz(nodo);
+        setLocationRelativeTo(null);
         
     }
 
@@ -124,14 +125,13 @@ public class Crear_Carpeta extends javax.swing.JFrame {
     }
         
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        if (nodo != null){        
-            
-            System.out.println("Se selecciono: "+CB_Carpeta.getSelectedItem());
-            nodo.matriz.existeX(CB_Carpeta.getSelectedItem().toString());
-            nodo.matriz.existeY(CB_Carpeta.getSelectedItem().toString());
-            String file=txt_Agregar.getText();
-            nodo.matriz.guardarMatriz(CB_Carpeta.getSelectedItem().toString(), file);
+        String file=(txt_Agregar.getText());
+        
+        if (nodo != null){       
+            nodo.matriz.existeX(file);
+            nodo.matriz.existeY(file);
+            //System.out.println("Se selecciono: "+CB_Carpeta.getSelectedItem());            
+            nodo.matriz.guardarMatriz(file,CB_Carpeta.getSelectedItem().toString());
             //System.out.printf(file);
             nodo.matriz.Graficar();
         }else{

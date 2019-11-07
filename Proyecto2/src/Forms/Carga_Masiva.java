@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Estructuras.TablaHash.NodoHash;
 import Estructuras.TablaHash.TablaHash;
 import com.csvreader.CsvReader;
 import com.opencsv.CSVReader;

@@ -166,6 +166,7 @@ public class Matriz {
         boolean estado;
         boolean encontrado=false;
         if(auxma!=null){
+            
         while(auxma.carpeta.compareTo(CarpetaA) != 0){
             auxma=auxma.siguiente;
         }
@@ -291,6 +292,46 @@ public class Matriz {
        existeY(b);
        guardarMatriz(a, b);
        
+   }
+   public void Grafo(){
+       FileWriter fichero = null;
+       PrintWriter pw = null;
+       try{
+           fichero = new FileWriter("Grafo.dot");
+           pw = new PrintWriter(fichero);
+           pw.println("digraph G{rankdir=LR;");
+           pw.println(" graph [splines=ortho, nodesep=0.5];");
+           pw.println("node [shape=ellipse, style=filled]");
+           Cabecera aux=firstF;
+           while(aux != null){
+               NodoMatriz nodo=aux.primero;
+               while (nodo != null){
+                   System.out.println("la carpeta tiene: "+aux.carpeta+" con  el archivo/carpeta "+nodo.x);
+                   pw.println("\""+aux.carpeta+  "\" -> \"" +nodo.x+"\"");
+                   nodo=nodo.arriba;
+                }
+                aux=aux.siguiente;
+            }
+           pw.println("}");
+           fichero.close();
+           String doPath="C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+           String fileInputPath = "Grafo.dot";
+           String fileOutPath = "Grafo.jpg";
+           String tParam = "-Tjpg";
+           String toParam = "-o";
+           String[] cmd = new String[5];
+           cmd[0] = doPath;
+           cmd[1] = tParam;
+           cmd[2] = fileInputPath;
+           cmd[3] = toParam;
+           cmd[4] = fileOutPath;
+
+           Runtime rt = Runtime.getRuntime();
+           rt.exec(cmd);
+       }
+       catch (Exception e) {
+            e.printStackTrace();
+        } 
    }
    public void Graficar(){
        FileWriter fichero = null;
