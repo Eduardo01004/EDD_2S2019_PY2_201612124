@@ -5,10 +5,6 @@
  */
 package Estructuras.ArbolAVL;
 
-/**
- *
- * @author Eduardo
- */
 public class NodoAvl {
     public String nombre;
     public String extension;
@@ -26,6 +22,14 @@ public class NodoAvl {
         this.altura = 0;
         this.izquierdo = null;
         this.derecho = null;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
 
     public String getNombre() {

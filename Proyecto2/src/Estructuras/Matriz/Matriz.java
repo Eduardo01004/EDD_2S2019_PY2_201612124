@@ -99,6 +99,7 @@ public class Matriz {
         }
     }
     
+    
     public void existeY(String carpeta){
         boolean estado=true;
         boolean encontrado=false;
@@ -292,6 +293,30 @@ public class Matriz {
        existeY(b);
        guardarMatriz(a, b);
        
+   }
+   
+   public NodoMatriz Buscar(String x, String y){
+       Cabecera aux=firstF;
+       boolean encontrado=false;
+       while(aux != null){
+           if(aux.carpeta.compareTo(x) == 0 ){
+               System.out.println(aux.carpeta);
+              encontrado=true;
+              break;  
+            }
+           aux=aux.siguiente;
+        }
+        if(encontrado){
+            NodoMatriz nodo=aux.primero;
+            while(nodo != null){
+                if(nodo.x.compareTo(y) == 0){
+                    System.out.println(nodo.y+"/ "+nodo.x);
+                    return nodo;
+                }
+                nodo=nodo.arriba;
+            }
+        }
+        return null;
    }
    public void Grafo(){
        FileWriter fichero = null;

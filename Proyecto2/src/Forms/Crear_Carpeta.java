@@ -5,6 +5,8 @@
  */
 package Forms;
 
+import Estructuras.Inserts.Insert_Hash;
+import Estructuras.Inserts.Metodos;
 import Estructuras.Matriz.Cabecera;
 import Estructuras.TablaHash.NodoHash;
 import javax.swing.JOptionPane;
@@ -19,8 +21,9 @@ public class Crear_Carpeta extends javax.swing.JFrame {
      * Creates new form Crear_Carpeta
      */
     Carga_Masiva carga;
-    Login log;
-    public NodoHash nodo=carga.tabla.extraerNodo(log.name);
+    //Login log;
+    Insert_Hash hash;
+    public NodoHash nodo=hash.tabla.extraerNodo(Metodos.getNombre_user());
     public Crear_Carpeta() {
         initComponents();
         InsertarRaiz(nodo);
@@ -120,13 +123,10 @@ public class Crear_Carpeta extends javax.swing.JFrame {
         while(aux != null){
             CB_Carpeta.addItem(aux.carpeta);
             aux=aux.siguiente;
-        }
-         
+        }    
     }
-        
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String file=(txt_Agregar.getText());
-        
         if (nodo != null){       
             nodo.matriz.existeX(file);
             nodo.matriz.existeY(file);

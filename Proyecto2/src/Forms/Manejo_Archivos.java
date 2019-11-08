@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Estructuras.Inserts.Insert_Hash;
 import Estructuras.TablaHash.NodoHash;
 import javax.swing.JOptionPane;
 
@@ -17,8 +18,10 @@ public class Manejo_Archivos extends javax.swing.JFrame {
     /**
      * Creates new form Manejo_Archivos
      */
+    
     Login log;
     Carga_Masiva carga;
+    Insert_Hash hash;
     public Manejo_Archivos() {
         initComponents();
         setLocationRelativeTo(null);
@@ -117,6 +120,11 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Archivos"));
 
         btnCrear_file.setText("Crear");
+        btnCrear_file.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrear_fileActionPerformed(evt);
+            }
+        });
 
         btnMod_file.setText("Modificar");
 
@@ -219,6 +227,13 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCrear_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrear_fileActionPerformed
+        // TODO add your handling code here:
+        Crear_Archivo archivo = new Crear_Archivo();
+        archivo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCrear_fileActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

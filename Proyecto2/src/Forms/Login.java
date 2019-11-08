@@ -5,6 +5,8 @@
  */
 package Forms;
 
+import Estructuras.Inserts.Insert_Hash;
+import Estructuras.Inserts.Metodos;
 import java.security.MessageDigest;
 import javax.swing.JOptionPane;
 
@@ -18,6 +20,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     Carga_Masiva carga;
+    Insert_Hash hash;
     public static String name="";
     public Login() {
         initComponents();
@@ -151,7 +154,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_registrarActionPerformed
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
-        name=Text_User.getText();
+        String name=Text_User.getText();
+        Metodos.setNombre_user(name);
         String pass=Text_Password.getText();
         Verificar_Admin(name, pass);  
     }//GEN-LAST:event_btn_ingresarActionPerformed
@@ -165,7 +169,7 @@ public class Login extends javax.swing.JFrame {
                 Carga_Masiva carga= new Carga_Masiva();
                 carga.setVisible(true); 
                 dispose();
-            }else if(carga.tabla.LoginUser(user, sha256(pass)) == true){
+            }else if(hash.tabla.LoginUser(user, Metodos.sha256(pass)) == true){
                 JOptionPane.showMessageDialog(null, "Bienvenido " +user);
                 Manejo_Archivos frame = new Manejo_Archivos();
                 frame.setVisible(true);
@@ -180,23 +184,7 @@ public class Login extends javax.swing.JFrame {
          
     }
     
-    public static String sha256(String base) {
-    try{
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = digest.digest(base.getBytes("UTF-8"));
-        StringBuffer hexString = new StringBuffer();
-
-        for (int i = 0; i < hash.length; i++) {
-            String hex = Integer.toHexString(0xff & hash[i]);
-            if(hex.length() == 1) hexString.append('0');
-            hexString.append(hex);
-        }
-
-        return hexString.toString();
-    } catch(Exception ex){
-       throw new RuntimeException(ex);
-    }
-}
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

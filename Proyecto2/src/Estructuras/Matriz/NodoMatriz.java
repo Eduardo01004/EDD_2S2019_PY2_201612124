@@ -5,6 +5,8 @@
  */
 package Estructuras.Matriz;
 
+import Estructuras.ArbolAVL.ArbolAvl;
+
 /**
  *
  * @author Eduardo
@@ -17,6 +19,8 @@ public class NodoMatriz {
     public NodoMatriz atras;
     public NodoMatriz arriba;
     public NodoMatriz abajo;
+    public ArbolAvl arbol;
+    
 
     public NodoMatriz(String x, String y) {
         this.x = x;
@@ -25,6 +29,7 @@ public class NodoMatriz {
         this.arriba = null;
         this.siguiente = null;
         this.atras = null;
+        this.arbol= new ArbolAvl();
     }
 
     public String getX() {

@@ -18,7 +18,7 @@ public class main {
         avl.InsertarAvl("Pofo", ".h", "pito", "546546");
         avl.InsertarAvl("Aca", ".h", "pito", "546546");
         avl.InsertarAvl("Powq", ".h", "pito", "546546");
-        avl.GraficarAVL();
+        avl.GraficarAVL("popo");
         avl.inorder(avl.raiz);
     }
     

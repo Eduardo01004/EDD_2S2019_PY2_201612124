@@ -15,11 +15,17 @@ import java.io.PrintWriter;
 public class ArbolAvl {
     public NodoAvl raiz;
     public int Fe=0;
-
+    /**
+     * 
+     */
     public ArbolAvl() {
         this.raiz = null;
     }
-    
+    /**
+     * 
+     * @param t
+     * @return 
+     */
     private int Altura(NodoAvl t){
         return t == null? -1 : t.altura;
     }
@@ -46,7 +52,7 @@ public class ArbolAvl {
         avlnode.setAltura(Max(Altura(avlnode.getDerecho()), nodo.getAltura()) + 1);
         return avlnode;
     }
-    
+ 
     public NodoAvl RotarDobleIzq(NodoAvl nodo){
         nodo.setIzquierdo(RotarDer(nodo.getIzquierdo()));
         return RotarIzq(nodo);
@@ -119,11 +125,12 @@ public class ArbolAvl {
         
     }
     
-    public void CodigoInterno(NodoAvl raiz,PrintWriter file){
+    public void CodigoInterno(NodoAvl raiz,PrintWriter file,String user){
         if (raiz != null){
-            CodigoInterno(raiz.getIzquierdo(), file);
+            CodigoInterno(raiz.getIzquierdo(), file,user);
             Fe=Altura(raiz.getIzquierdo())-Altura(raiz.getIzquierdo());
-            file.write(raiz.getNombre()+"[label=\"<C0>|Nombre: "+raiz.getNombre()+"&#92;n Extension: "+raiz.getExtension()+"&#92;n FE: " +Fe+ "&#92;n Altura: "+raiz.getAltura()+"&#92;n TimeStamp: "+ raiz.getTimestamp()+"|<C1>\"];\n");
+            file.write(raiz.getNombre()+"[label=\"<C0>|Nombre: "+raiz.getNombre()+"&#92;n Contenido: "+raiz.getContenido()+"&#92;n Extension: "+raiz.getExtension()+"&#92;n FE: " +Fe+ "&#92;n Altura: "+raiz.getAltura()+
+                                       "&#92;n TimeStamp: "+ raiz.getTimestamp()+"&#92;n Propietario: "+user+"|<C1>\"];\n");
             if (raiz.getDerecho() != null){
                 file.write(raiz.getNombre() + "->" + raiz.getDerecho().getNombre()+"\n");
             }
@@ -131,12 +138,12 @@ public class ArbolAvl {
                 file.write(raiz.getNombre() + "->" + raiz.getIzquierdo().getNombre()+"\n");
             }
             
-            CodigoInterno(raiz.getDerecho(), file);
+            CodigoInterno(raiz.getDerecho(), file,user);
         }
         
     }
     
-    public void GraficarAVL(){
+    public void GraficarAVL(String user){
         FileWriter fw = null;
         PrintWriter pw = null;
         try {
@@ -145,7 +152,7 @@ public class ArbolAvl {
             pw.println("digraph ArbolAVl{rankdir=TB;\n");
             pw.println("graph [splines=compound, nodesep=0.5];\n");
             pw.println("node [shape=record, style=filled,fillcolor=seashell2,width=0.7,height=0.2];\n");
-            CodigoInterno(raiz, pw);
+            CodigoInterno(raiz, pw,user);
             pw.println("}\n");
         } catch (Exception e) {
             e.printStackTrace();

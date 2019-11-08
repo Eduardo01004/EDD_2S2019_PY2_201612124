@@ -37,7 +37,7 @@ public class mainHash {
                 nodo.matriz.guardarMatriz("view", "vendor");
                 nodo.matriz.Graficar();
             }
-            
+                nodo.matriz.Buscar("documents","vendor");
             
             
             //tabla.extraerNodo("Eduardo");

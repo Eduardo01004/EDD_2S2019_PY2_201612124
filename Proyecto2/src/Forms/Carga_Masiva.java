@@ -5,6 +5,8 @@
  */
 package Forms;
 
+import Estructuras.Inserts.Insert_Hash;
+import Estructuras.Inserts.Metodos;
 import Estructuras.TablaHash.NodoHash;
 import Estructuras.TablaHash.TablaHash;
 import com.csvreader.CsvReader;
@@ -35,8 +37,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
     /**
      * Creates new form Carga_Masiva
      */
-    
-    public static TablaHash tabla=new TablaHash();
+    Insert_Hash hash;
     Date date = new Date();
     
     
@@ -187,19 +188,19 @@ public class Carga_Masiva extends javax.swing.JFrame {
                     if(leerUser.get(1).length() < 8){
                         System.out.println(leerUser.get(0)+ "Password menor a 8 caracteres ");
                         jTextArea2.append(leerUser.get(0)+ " Password menor a 8 caracteres \n");
-                    }else if(tabla.buscarNodo(leerUser.get(0)) == true){
+                    }else if(hash.tabla.buscarNodo(leerUser.get(0)) == true){
                         System.out.println(leerUser.get(0)+ "Ya existe ");
                         jTextArea2.append(leerUser.get(0)+ " Ya existe\n\n");
                     }
                     else{
-                        System.out.println(sha256(leerUser.get(0)));
-                        tabla.insertar(leerUser.get(0), sha256(leerUser.get(1)),hourdateFormat.format(date));
+                        System.out.println(Metodos.sha256(leerUser.get(0)));
+                        hash.tabla.insertar(leerUser.get(0), Metodos.sha256(leerUser.get(1)),hourdateFormat.format(date));
                         jTextArea1.append(leerUser.get(0)+" Se inserto Correctamente \n\n");
                     }
                }
                leerUser.close();
             }  
-            tabla.generarDotTablaHash();
+            hash.tabla.generarDotTablaHash();
 
 
             }
@@ -212,23 +213,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
-    public static String sha256(String base) {
-    try{
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = digest.digest(base.getBytes("UTF-8"));
-        StringBuffer hexString = new StringBuffer();
-
-        for (int i = 0; i < hash.length; i++) {
-            String hex = Integer.toHexString(0xff & hash[i]);
-            if(hex.length() == 1) hexString.append('0');
-            hexString.append(hex);
-        }
-
-        return hexString.toString();
-    } catch(Exception ex){
-       throw new RuntimeException(ex);
-    }
-}
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Reportes login = new Reportes();

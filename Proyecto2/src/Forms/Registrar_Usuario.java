@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Estructuras.Inserts.Insert_Hash;
 import Estructuras.TablaHash.TablaHash;
 import java.security.MessageDigest;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class Registrar_Usuario extends javax.swing.JFrame {
      * Creates new form Registrar_Usuario
      */
     Carga_Masiva carga;
+    Insert_Hash hash;
     Date date = new Date();
     public Registrar_Usuario() {
         initComponents();
@@ -133,15 +135,15 @@ public class Registrar_Usuario extends javax.swing.JFrame {
         String user=(txrRegistro_user.getText());
         String contra=(txtRegistro_password.getText());
         DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-        if (carga.tabla.buscarNodo(user) == true){
+        if (hash.tabla.buscarNodo(user) == true){
             JOptionPane.showMessageDialog(null, "El Usuario "+ user+" Ya existe");
         }else if(contra.length() < 8){
             JOptionPane.showMessageDialog(null, "La contraseña es menor a 8 caraceres");
         }
         else{
-            carga.tabla.insertar(user, sha256(contra),hourdateFormat.format(date));
+            hash.tabla.insertar(user, sha256(contra),hourdateFormat.format(date));
             JOptionPane.showMessageDialog(null, "El usuario "+user+" Se agrego correctamente");
-            carga.tabla.generarDotTablaHash();
+            hash.tabla.generarDotTablaHash();
         }
         user="";
         contra="";
