@@ -338,7 +338,7 @@ public class Matriz {
         }
         return null;
    }
-   public void Grafo(String no){
+   public void Grafo(){
        FileWriter fichero = null;
        PrintWriter pw = null;
        try{

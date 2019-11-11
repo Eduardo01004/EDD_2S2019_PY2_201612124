@@ -105,10 +105,12 @@ public class Delete_File extends javax.swing.JFrame {
                     aux.arbol.Eliminar(CM_Files.getSelectedItem().toString(), aux.arbol.raiz);
                     JOptionPane.showMessageDialog(null, "Eliminado ");
                     aux.arbol.GraficarAVL(Metodos.getNombre_user());
-                    
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "No se pudo Eliminar ");
                 }
             
-        }
+        }else JOptionPane.showMessageDialog(null, "No se encontro el usuario ");
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -126,11 +128,16 @@ public class Delete_File extends javax.swing.JFrame {
                     aux.arbol.inorder(aux.arbol.raiz);
                     
                 }
+                else{
+                    JOptionPane.showMessageDialog(null, "No se encontro las carpetas ");
+                }
                 for(int i = 0; i < Metodos.al.size(); i++){
                         CM_Files.addItem(Metodos.al.get(i));
                         System.out.println(Metodos.al.get(i));
                     }
             
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encontro el Usuario ");
         }
         
     }

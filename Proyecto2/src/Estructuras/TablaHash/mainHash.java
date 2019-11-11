@@ -45,7 +45,7 @@ public class mainHash {
                     s.arbol.InsertarAvl("otro_archivo", "Sd", "asd","asd");
                     s.arbol.GraficarAVL("Usuario");
                     s.arbol.inorder(s.arbol.raiz);
-                    s.arbol.Prueba(nodo, s, "home", "vendor");
+                    
                     /*while (s!= null ){
                         for (int i = 0; i< Metodos.al.size(); i++){
                           System.out.println("Carpeta Padre : " + s.y +" Carpetas Dentro: " +s.x+ " archivos: " +Metodos.al.get(i));

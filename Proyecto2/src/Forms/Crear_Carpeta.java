@@ -130,10 +130,9 @@ public class Crear_Carpeta extends javax.swing.JFrame {
         if (nodo != null){       
             nodo.matriz.existeX(file);
             nodo.matriz.existeY(file);
-            //System.out.println("Se selecciono: "+CB_Carpeta.getSelectedItem());            
             nodo.matriz.guardarMatriz(file,CB_Carpeta.getSelectedItem().toString());
-            //System.out.printf(file);
             nodo.matriz.Graficar();
+            nodo.matriz.Grafo();
         }else{
             JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
         }

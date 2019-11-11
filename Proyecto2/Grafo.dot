@@ -1,9 +1,6 @@
 digraph G{rankdir=LR;
  graph [splines=ortho, nodesep=0.5];
 node [shape=ellipse, style=filled]
-"/" -> "home"
-"documents" -> "usac"
-"documents" -> "vendor"
-"home" -> "documents"
-"vendor" -> "view"
+"/" -> "Documents"
+"Documents" -> "Archivos"
 }
