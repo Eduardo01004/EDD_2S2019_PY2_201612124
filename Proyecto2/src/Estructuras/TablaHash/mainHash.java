@@ -5,6 +5,9 @@
  */
 package Estructuras.TablaHash;
 
+import Estructuras.Inserts.Metodos;
+import Estructuras.Matriz.NodoMatriz;
+
 /**
  *
  * @author Eduardo
@@ -36,8 +39,27 @@ public class mainHash {
                 nodo.matriz.guardarMatriz("vendor", "documents");
                 nodo.matriz.guardarMatriz("view", "vendor");
                 nodo.matriz.Graficar();
+                NodoMatriz s = nodo.matriz.BuscarC("home");
+                if (s != null){
+                    s.arbol.InsertarAvl("un_archivo", "Sd", "asd","asd");
+                    s.arbol.InsertarAvl("otro_archivo", "Sd", "asd","asd");
+                    s.arbol.GraficarAVL("Usuario");
+                    s.arbol.inorder(s.arbol.raiz);
+                    s.arbol.Prueba(nodo, s, "home", "vendor");
+                    /*while (s!= null ){
+                        for (int i = 0; i< Metodos.al.size(); i++){
+                          System.out.println("Carpeta Padre : " + s.y +" Carpetas Dentro: " +s.x+ " archivos: " +Metodos.al.get(i));
+                                
+                        }
+                        s=s.arriba;
+                    }*/
+                    
+                    //System.out.println(s.arbol.raiz.nombre);
+                    
+                }else System.out.println("No se encuentra");
+                
             }
-                nodo.matriz.Buscar("documents","vendor");
+               
             
             
             //tabla.extraerNodo("Eduardo");

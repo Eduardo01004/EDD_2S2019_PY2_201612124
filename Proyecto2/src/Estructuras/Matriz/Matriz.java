@@ -294,13 +294,34 @@ public class Matriz {
        guardarMatriz(a, b);
        
    }
+   public NodoMatriz BuscarC(String x){
+      Cabecera aux=firstF;
+       boolean encontrado=false;
+       while(aux != null){
+           if(aux.carpeta.compareTo(x) == 0 ){
+              encontrado=true;
+              break;  
+            }
+           aux=aux.siguiente;
+        }
+        if(encontrado){
+            NodoMatriz nodo=aux.primero;
+            while(nodo != null){
+                if(nodo.y.compareTo(x) == 0){
+                    return nodo;
+                }
+                nodo=nodo.arriba;
+            }
+        }
+        return null;
+       
+   }
    
    public NodoMatriz Buscar(String x, String y){
        Cabecera aux=firstF;
        boolean encontrado=false;
        while(aux != null){
            if(aux.carpeta.compareTo(x) == 0 ){
-               System.out.println(aux.carpeta);
               encontrado=true;
               break;  
             }
@@ -310,7 +331,6 @@ public class Matriz {
             NodoMatriz nodo=aux.primero;
             while(nodo != null){
                 if(nodo.x.compareTo(y) == 0){
-                    System.out.println(nodo.y+"/ "+nodo.x);
                     return nodo;
                 }
                 nodo=nodo.arriba;
@@ -318,7 +338,7 @@ public class Matriz {
         }
         return null;
    }
-   public void Grafo(){
+   public void Grafo(String no){
        FileWriter fichero = null;
        PrintWriter pw = null;
        try{
@@ -331,7 +351,7 @@ public class Matriz {
            while(aux != null){
                NodoMatriz nodo=aux.primero;
                while (nodo != null){
-                   System.out.println("la carpeta tiene: "+aux.carpeta+" con  el archivo/carpeta "+nodo.x);
+                   //System.out.println("la carpeta tiene: "+aux.carpeta+" con  el archivo/carpeta "+nodo.x+" Y los archivos " +no);
                    pw.println("\""+aux.carpeta+  "\" -> \"" +nodo.x+"\"");
                    nodo=nodo.arriba;
                 }

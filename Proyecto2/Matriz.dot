@@ -1,33 +1,64 @@
 digraph G{
 node [shape = box]
 raiz[label="Matriz"  group=1];
-793633758 [label="/" group = 1];
-877367046 [label="EDD" group = 1];
-1331924717 [label="Primer_Semestre" group = 1];
-793633758->877367046[dir=both];
-877367046->1331924717[dir=both];
-746353056 [label="/" group = 49];
-1343671095 [label="EDD" group = 207];
-1113757406 [label="Primer_Semestre" group = 1560];
-746353056->1343671095[dir=both];
-1343671095->1113757406[dir=both];
-raiz ->793633758
-raiz ->746353056
+239465106 [label="/" group = 1];
+267760927 [label="documents" group = 1];
+633070006 [label="home" group = 1];
+1459794865 [label="usac" group = 1];
+1776957250 [label="vendor" group = 1];
+1268066861 [label="view" group = 1];
+239465106->267760927[dir=both];
+267760927->633070006[dir=both];
+633070006->1459794865[dir=both];
+1459794865->1776957250[dir=both];
+1776957250->1268066861[dir=both];
+280884709 [label="/" group = 49];
+1604125387 [label="documents" group = 980];
+1668627309 [label="home" group = 427];
+1795799895 [label="usac" group = 430];
+1698097425 [label="vendor" group = 656];
+1376400422 [label="view" group = 445];
+280884709->1604125387[dir=both];
+1604125387->1668627309[dir=both];
+1668627309->1795799895[dir=both];
+1795799895->1698097425[dir=both];
+1698097425->1376400422[dir=both];
+raiz ->239465106
+raiz ->280884709
 { rank  = same; raiz 
-746353056;
-1343671095;
-1113757406;
+280884709;
+1604125387;
+1668627309;
+1795799895;
+1698097425;
+1376400422;
 }
-1935258157 [style=filled,fillcolor=seashell2,label= "Primer_Semestre/EDD" group = 207 ];
-49405535 [style=filled,fillcolor=seashell2,label= "//Primer_Semestre" group = 1560 ];
-793633758->49405535
-{ rank = same; 793633758;
-49405535;
+488044861 [style=filled,fillcolor=seashell2,label= "home/documents" group = 980 ];
+990398217 [style=filled,fillcolor=seashell2,label= "//home" group = 427 ];
+841283083 [style=filled,fillcolor=seashell2,label= "documents/usac" group = 430 ];
+1675763772 [style=filled,fillcolor=seashell2,label= "documents/vendor" group = 656 ];
+520016214 [style=filled,fillcolor=seashell2,label= "vendor/view" group = 445 ];
+239465106->990398217
+{ rank = same; 239465106;
+990398217;
 }
-1331924717->1935258157
-{ rank = same; 1331924717;
-1935258157;
+267760927->841283083
+841283083->1675763772[dir=both];
+{ rank = same; 267760927;
+841283083;
+1675763772;
 }
-1343671095->1935258157[dir=both];
-1113757406->49405535[dir=both];
+633070006->488044861
+{ rank = same; 633070006;
+488044861;
+}
+1776957250->520016214
+{ rank = same; 1776957250;
+520016214;
+}
+1604125387->488044861[dir=both];
+1668627309->990398217[dir=both];
+1795799895->841283083[dir=both];
+1698097425->1675763772[dir=both];
+1376400422->520016214[dir=both];
 }

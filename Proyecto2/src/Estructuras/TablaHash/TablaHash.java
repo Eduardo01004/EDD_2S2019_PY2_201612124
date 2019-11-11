@@ -48,9 +48,9 @@ public class TablaHash {
             char character = nombre.charAt(a); // start on the first character
             int ascii = (int) character; //convert the first character
             total=total+ascii; 
-           System.out.println(character+" = "+ ascii); // print the character and it's value in ascii
+           //System.out.println(character+" = "+ ascii); // print the character and it's value in ascii
         }
-        System.out.println(" total "+total);
+        //System.out.println(" total "+total);
         return total;
     }
     
@@ -70,11 +70,11 @@ public class TablaHash {
                 ocupados += 1;
                 porcentajeUtil = calcularPorcentajeUtil();
                 insertado = true;
-                System.out.println("Dato " + nombre + " " + "Posicion " + posicion);
+                //System.out.println("Dato " + nombre + " " + "Posicion " + posicion);
 
             } else {
                 if (vectorHash[posicion].nombre.equals(nombre)) {
-                    System.out.println("La variable a insertar ya existe en la tabla: " + nombre);
+                    //System.out.println("La variable a insertar ya existe en la tabla: " + nombre);
                 } else {
                     for (int i = 1; i < 10; i++) {
                         int posicionActual = posicion + (i+1)^2;//cuadratica 
@@ -89,17 +89,17 @@ public class TablaHash {
                             break;
                         }
                         //cuando hay colision automaticamente el proceso sigue hasta que se pueda insertar el dato
-                        System.out.println("Colision en la pos: " + posicion);                        
+                        //System.out.println("Colision en la pos: " + posicion);                        
                     }
                 }
             }
             if (insertado == true) {
-                System.out.println("Se inserto correctamente el dato " + nombre);
+               // System.out.println("Se inserto correctamente el dato " + nombre);
             } else {
-                System.out.println("No se pudo insertar el dato " + nombre);
+                //System.out.println("No se pudo insertar el dato " + nombre);
             }
         } else {
-            System.out.println("Hacer Rehashing -> Porcentaje util: " + porcentajeUtil);            
+            //System.out.println("Hacer Rehashing -> Porcentaje util: " + porcentajeUtil);            
             rehashing();
             insertar(nombre,password,time);
         }
@@ -144,7 +144,6 @@ public class TablaHash {
                 if (vectorHash[posicion].nombre.equals(codigo)) {
                     tmp = vectorHash[posicion];
                     pos = posicion;
-                System.out.println("pisic"+posicion);
                     encontrado = true;
                     break;
                 }
@@ -152,9 +151,9 @@ public class TablaHash {
             }
         }
         if (encontrado) {
-            System.out.println("Se encontro la variable en la posicion " + pos);
+            //System.out.println("Se encontro la variable en la posicion " + pos);
         } else {
-            System.out.println("La variable " + codigo + "no se encuentra en la tabla");
+            //System.out.println("La variable " + codigo + "no se encuentra en la tabla");
         }
         return tmp;
     }

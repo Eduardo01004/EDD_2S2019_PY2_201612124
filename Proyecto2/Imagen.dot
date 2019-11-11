@@ -1,0 +1,20 @@
+digraph  imagen {
+ node [shape=plaintext];
+
+struct1[label=<<TABLE BORDER="0">
+<TR>
+ <TD WIDTH="30" HEIGHT="30" BORDER="0"><IMG SRC="imagenes/carpeta.png"/></TD>
+</TR>
+<TR>
+<TD WIDTH="30" HEIGHT="30" BORDER="0" >documents</TD>
+</TR></TABLE>>];
+struct2[label=<<TABLE BORDER="0"><TR>
+ <TD WIDTH="30" HEIGHT="30" BORDER="0" ><IMG SRC="imagenes/archivo.png"/></TD>
+ <TD WIDTH="30" HEIGHT="30" BORDER="0" ><IMG SRC="imagenes/archivo.png"/></TD>
+</TR>
+<TR>
+<TD WIDTH="30" HEIGHT="30" BORDER="0">otro_archivo</TD>
+<TD WIDTH="30" HEIGHT="30" BORDER="0">un_archivo</TD>
+</TR></TABLE>>];
+}
+

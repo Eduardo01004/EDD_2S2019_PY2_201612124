@@ -193,7 +193,6 @@ public class Carga_Masiva extends javax.swing.JFrame {
                         jTextArea2.append(leerUser.get(0)+ " Ya existe\n\n");
                     }
                     else{
-                        System.out.println(Metodos.sha256(leerUser.get(0)));
                         hash.tabla.insertar(leerUser.get(0), Metodos.sha256(leerUser.get(1)),hourdateFormat.format(date));
                         jTextArea1.append(leerUser.get(0)+" Se inserto Correctamente \n\n");
                     }

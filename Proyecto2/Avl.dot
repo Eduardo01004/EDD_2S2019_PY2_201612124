@@ -4,12 +4,8 @@ graph [splines=compound, nodesep=0.5];
 
 node [shape=record, style=filled,fillcolor=seashell2,width=0.7,height=0.2];
 
-Header[label="<C0>|Nombre: Header&#92;n Contenido: este es un archivo cabecera&#92;n Extension: py&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 20:32:37 07/11/2019&#92;n Propietario: Ricardo123|<C1>"];
-Hola[label="<C0>|Nombre: Hola&#92;n Contenido: Hola Mundo!!!!&#92;n Extension: txt&#92;n FE: 0&#92;n Altura: 2&#92;n TimeStamp: 20:32:37 07/11/2019&#92;n Propietario: Ricardo123|<C1>"];
-Hola->Main
-Hola->Header
-Main[label="<C0>|Nombre: Main&#92;n Contenido: Python Script&#92;n Extension: py&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 20:32:37 07/11/2019&#92;n Propietario: Ricardo123|<C1>"];
-Main->chrome
-chrome[label="<C0>|Nombre: chrome&#92;n Contenido: Este es un archivo ejecutable&#92;n Extension: exe&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 20:32:37 07/11/2019&#92;n Propietario: Ricardo123|<C1>"];
+otro_archivo[label="<C0>|Nombre: otro_archivo&#92;n Contenido: asd&#92;n Extension: Sd&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: asd&#92;n Propietario: Usuario|<C1>"];
+un_archivo[label="<C0>|Nombre: un_archivo&#92;n Contenido: asd&#92;n Extension: Sd&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: asd&#92;n Propietario: Usuario|<C1>"];
+un_archivo->otro_archivo
 }
 

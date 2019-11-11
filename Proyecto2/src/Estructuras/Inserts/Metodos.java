@@ -6,6 +6,7 @@
 package Estructuras.Inserts;
 
 import java.security.MessageDigest;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +14,9 @@ import java.security.MessageDigest;
  */
 public class Metodos {
     private static String nombre_user = "";
+    private static String carpeta_file1 = "";
+    private static String carpeta_file2 = "";
+    public  static ArrayList<String> al = new ArrayList<String>();
     
     public static String sha256(String base) {
     try{
@@ -41,5 +45,23 @@ public class Metodos {
     public static void setNombre_user(String nombre_user) {
         Metodos.nombre_user = nombre_user;
     }
+
+    public static String getCarpeta_file1() {
+        return carpeta_file1;
+    }
+
+    public static void setCarpeta_file1(String carpeta_file1) {
+        Metodos.carpeta_file1 = carpeta_file1;
+    }
+
+    public static String getCarpeta_file2() {
+        return carpeta_file2;
+    }
+
+    public static void setCarpeta_file2(String carpeta_file2) {
+        Metodos.carpeta_file2 = carpeta_file2;
+    }
+
+    
     
 }

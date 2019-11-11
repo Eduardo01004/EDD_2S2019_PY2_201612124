@@ -48,7 +48,7 @@ public class mainMatrix {
         matrix.guardarMatriz("oracle", "var");
         matrix.guardarMatriz("cache", "temp");
         
-        matrix.Grafo();
+        //matrix.Grafo();
         matrix.Graficar();
             
     }
