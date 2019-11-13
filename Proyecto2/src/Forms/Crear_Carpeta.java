@@ -9,6 +9,9 @@ import Estructuras.Inserts.Insert_Hash;
 import Estructuras.Inserts.Metodos;
 import Estructuras.Matriz.Cabecera;
 import Estructuras.TablaHash.NodoHash;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -127,12 +130,16 @@ public class Crear_Carpeta extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String file=(txt_Agregar.getText());
-        if (nodo != null){       
+        Date date = new Date();
+        if (nodo != null){
+            DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             nodo.matriz.existeX(file);
             nodo.matriz.existeY(file);
             nodo.matriz.guardarMatriz(file,CB_Carpeta.getSelectedItem().toString());
             nodo.matriz.Graficar();
             nodo.matriz.Grafo();
+            hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: " +hourFormat.format(date), " Creo La carpeta " + file, " Usuario: "+ Metodos.getNombre_user());
         }else{
             JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
         }

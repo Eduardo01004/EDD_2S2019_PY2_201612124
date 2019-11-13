@@ -4,8 +4,6 @@ graph [splines=compound, nodesep=0.5];
 
 node [shape=record, style=filled,fillcolor=seashell2,width=0.7,height=0.2];
 
-otro_archivo[label="<C0>|Nombre: otro_archivo&#92;n Contenido: asd&#92;n Extension: Sd&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: asd&#92;n Propietario: Usuario|<C1>"];
-un_archivo[label="<C0>|Nombre: un_archivo&#92;n Contenido: asd&#92;n Extension: Sd&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: asd&#92;n Propietario: Usuario|<C1>"];
-un_archivo->otro_archivo
+s[label="<C0>|Nombre: s&#92;n Contenido: ds&#92;n Extension: null&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 18:45:24 12/11/2019&#92;n Propietario: Juan123|<C1>"];
 }
 

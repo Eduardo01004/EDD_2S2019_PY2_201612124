@@ -3,13 +3,12 @@ digraph  imagen {
 
 struct1[label=<<TABLE BORDER="0">
 <TR>
- <TD WIDTH="30" HEIGHT="30" BORDER="0"><IMG SRC="imagenes/carpeta.png"/></TD>
-</TR>
-<TR>
-<TD WIDTH="30" HEIGHT="30" BORDER="0" >Archivos</TD>
 </TR></TABLE>>];
 struct2[label=<<TABLE BORDER="0"><TR>
-<TD>NO HAY ARCHIVOS</TD>
+ <TD WIDTH="30" HEIGHT="30" BORDER="0" ><IMG SRC="imagenes/archivo.png"/></TD>
+</TR>
+<TR>
+<TD WIDTH="30" HEIGHT="30" BORDER="0">s</TD>
 </TR></TABLE>>];
 }
 

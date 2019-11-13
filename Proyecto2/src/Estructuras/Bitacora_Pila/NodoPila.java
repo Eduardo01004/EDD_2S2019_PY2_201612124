@@ -14,7 +14,7 @@ public class NodoPila {
     public String hora;
     public String operacion;
     public String usuario;
-    NodoPila siguiente;
+    public NodoPila siguiente;
 
     public NodoPila(String fecha, String hora, String operacion, String usuario) {
         this.fecha = fecha;

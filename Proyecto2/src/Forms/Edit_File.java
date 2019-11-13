@@ -10,6 +10,9 @@ import Estructuras.Inserts.Insert_Hash;
 import Estructuras.Inserts.Metodos;
 import Estructuras.Matriz.NodoMatriz;
 import Estructuras.TablaHash.NodoHash;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -109,29 +112,33 @@ public class Edit_File extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(78, 78, 78)
-                                .addComponent(txt_name))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_extension, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(65, 65, 65)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txt_time, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                                    .addComponent(txt_contenido)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(91, 91, 91)
                                         .addComponent(CB_File, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 25, Short.MAX_VALUE)))
-                        .addGap(85, 85, 85))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(0, 4, Short.MAX_VALUE)
+                                            .addComponent(jLabel5)
+                                            .addGap(65, 65, 65))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addGap(72, 72, 72)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(82, 82, 82)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                                    .addComponent(txt_extension, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txt_time, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                        .addComponent(txt_contenido)))))
+                        .addGap(79, 79, 79))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,6 +182,11 @@ public class Edit_File extends javax.swing.JFrame {
         if (nodo != null){
             NodoMatriz aux=nodo.matriz.Buscar(Metodos.getCarpeta_file1(),Metodos.getCarpeta_file2());
                 if(aux != null){
+                    Date date = new Date();
+                    DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date), " Modifico el Archivo " 
+                            + CB_File.getSelectedItem().toString()+" a "+txt_name.getText() , " Usuario: "+ Metodos.getNombre_user());
                     aux.arbol.Editar(CB_File.getSelectedItem().toString(), txt_name.getText(), txt_extension.getText(), txt_contenido.getText(), txt_time.getText());
                     aux.arbol.GraficarAVL(Metodos.getNombre_user());
                 }

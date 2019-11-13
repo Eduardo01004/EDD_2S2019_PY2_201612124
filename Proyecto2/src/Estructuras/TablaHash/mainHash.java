@@ -33,19 +33,22 @@ public class mainHash {
                 nodo.matriz.existeY("vendor");
                 nodo.matriz.existeX("view");
                 nodo.matriz.existeY("view");
+                nodo.matriz.existeX("pito");
+                nodo.matriz.existeY("pito");
                 nodo.matriz.guardarMatriz("home", "/");
                 nodo.matriz.guardarMatriz("documents", "home");
                 nodo.matriz.guardarMatriz("usac", "documents");
                 nodo.matriz.guardarMatriz("vendor", "documents");
+                nodo.matriz.guardarMatriz("pito", "usac");
                 nodo.matriz.guardarMatriz("view", "vendor");
                 nodo.matriz.Graficar();
-                NodoMatriz s = nodo.matriz.BuscarC("home");
+                NodoMatriz s = nodo.matriz.Buscar("documents","usac");
                 if (s != null){
                     s.arbol.InsertarAvl("un_archivo", "Sd", "asd","asd");
                     s.arbol.InsertarAvl("otro_archivo", "Sd", "asd","asd");
                     s.arbol.GraficarAVL("Usuario");
                     s.arbol.inorder(s.arbol.raiz);
-                    
+                    s.arbol.Prueba(nodo, s, "usac", "pito");
                     /*while (s!= null ){
                         for (int i = 0; i< Metodos.al.size(); i++){
                           System.out.println("Carpeta Padre : " + s.y +" Carpetas Dentro: " +s.x+ " archivos: " +Metodos.al.get(i));

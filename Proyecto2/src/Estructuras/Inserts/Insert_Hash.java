@@ -5,6 +5,7 @@
  */
 package Estructuras.Inserts;
 
+import Estructuras.Bitacora_Pila.Bitacora_Pila;
 import Estructuras.TablaHash.TablaHash;
 
 /**
@@ -13,5 +14,6 @@ import Estructuras.TablaHash.TablaHash;
  */
 public class Insert_Hash {
     public static TablaHash tabla=new TablaHash();
+    public static Bitacora_Pila bitacora = new Bitacora_Pila();
     
 }

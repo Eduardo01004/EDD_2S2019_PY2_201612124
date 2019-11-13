@@ -1,33 +1,42 @@
 digraph G{
 node [shape = box]
 raiz[label="Matriz"  group=1];
-1444867196 [label="/" group = 1];
-1963497506 [label="Archivos" group = 1];
-1196078410 [label="Documents" group = 1];
-1444867196->1963497506[dir=both];
-1963497506->1196078410[dir=both];
-1624311792 [label="/" group = 49];
-1160409315 [label="Archivos" group = 833];
-1762794124 [label="Documents" group = 948];
-1624311792->1160409315[dir=both];
-1160409315->1762794124[dir=both];
-raiz ->1444867196
-raiz ->1624311792
+1926504677 [label="/" group = 1];
+1423068889 [label="A" group = 1];
+976682032 [label="B" group = 1];
+204377634 [label="VVV" group = 1];
+1926504677->1423068889[dir=both];
+1423068889->976682032[dir=both];
+976682032->204377634[dir=both];
+1444922939 [label="/" group = 49];
+1268800339 [label="A" group = 67];
+915114628 [label="B" group = 68];
+539023194 [label="VVV" group = 260];
+1444922939->1268800339[dir=both];
+1268800339->915114628[dir=both];
+915114628->539023194[dir=both];
+raiz ->1926504677
+raiz ->1444922939
 { rank  = same; raiz 
-1624311792;
-1160409315;
-1762794124;
+1444922939;
+1268800339;
+915114628;
+539023194;
 }
-1910749462 [style=filled,fillcolor=seashell2,label= "Documents/Archivos" group = 833 ];
-532229038 [style=filled,fillcolor=seashell2,label= "//Documents" group = 948 ];
-1444867196->532229038
-{ rank = same; 1444867196;
-532229038;
+2118460907 [style=filled,fillcolor=seashell2,label= "//A" group = 67 ];
+149410223 [style=filled,fillcolor=seashell2,label= "A/B" group = 68 ];
+1086257656 [style=filled,fillcolor=seashell2,label= "A/VVV" group = 260 ];
+1926504677->2118460907
+{ rank = same; 1926504677;
+2118460907;
 }
-1196078410->1910749462
-{ rank = same; 1196078410;
-1910749462;
+1423068889->149410223
+149410223->1086257656[dir=both];
+{ rank = same; 1423068889;
+149410223;
+1086257656;
 }
-1160409315->1910749462[dir=both];
-1762794124->532229038[dir=both];
+1268800339->2118460907[dir=both];
+915114628->149410223[dir=both];
+539023194->1086257656[dir=both];
 }

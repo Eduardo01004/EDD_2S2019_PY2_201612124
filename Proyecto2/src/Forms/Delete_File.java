@@ -9,6 +9,9 @@ import Estructuras.Inserts.Insert_Hash;
 import Estructuras.Inserts.Metodos;
 import Estructuras.Matriz.NodoMatriz;
 import Estructuras.TablaHash.NodoHash;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -102,9 +105,15 @@ public class Delete_File extends javax.swing.JFrame {
         if (nodo != null){
             NodoMatriz aux=nodo.matriz.Buscar(Metodos.getCarpeta_file1(),Metodos.getCarpeta_file2());
                 if(aux != null){
+                    Date date = new Date();
+                    DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    hash.bitacora.Insertar("Fecha: "+dateFormat.format(date), " Hora: "+hourFormat.format(date), " Elimino el archivo " 
+                            + CM_Files.getSelectedItem().toString(), " Usuario: "+ Metodos.getNombre_user());
                     aux.arbol.Eliminar(CM_Files.getSelectedItem().toString(), aux.arbol.raiz);
                     JOptionPane.showMessageDialog(null, "Eliminado ");
                     aux.arbol.GraficarAVL(Metodos.getNombre_user());
+                    
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "No se pudo Eliminar ");
