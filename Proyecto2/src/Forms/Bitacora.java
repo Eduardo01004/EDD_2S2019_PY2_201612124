@@ -7,6 +7,12 @@ package Forms;
 
 import Estructuras.Bitacora_Pila.NodoPila;
 import Estructuras.Inserts.Insert_Hash;
+import java.awt.Color;
+import javax.swing.JTextPane;
+import javax.swing.text.DefaultStyledDocument;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
 
 /**
  *
@@ -18,11 +24,30 @@ public class Bitacora extends javax.swing.JFrame {
      * Creates new form Bitacora
      */
     Insert_Hash pila;
+    public JTextPane caja2=new JTextPane();
+    public StyleContext sc = new StyleContext();
+    public DefaultStyledDocument doc = new DefaultStyledDocument(sc);
     public Bitacora() {
         initComponents();
         setLocationRelativeTo(null);
         Mostrar_Bitacora();
     }
+    public void insertar(String texto){
+   
+        caja2.setDocument(doc);
+        try {
+            doc.insertString(0,texto,null);
+
+        }catch (Exception ex) {
+            System.out.println("ERROr: no se pudo establecer estilo de documento");
+        }
+   
+   }
+    public void pintaRojo(int posini,int posfin){
+        Style rojo = sc.addStyle("ConstantWidth", null);
+        StyleConstants.setForeground(rojo, Color.red);
+        doc.setCharacterAttributes(posini,posfin, rojo, false);
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,7 +69,10 @@ public class Bitacora extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Bitacora", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 24))); // NOI18N
 
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(204, 204, 255));
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Georgia", 1, 16)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -102,7 +130,7 @@ public class Bitacora extends javax.swing.JFrame {
         NodoPila aux = pila.bitacora.primero;
         if (aux != null){
             while(aux != null){
-                jTextArea1.append(aux.getFecha() + aux.getHora() + aux.getOperacion() + aux.getUsuario() + "\n");
+                jTextArea1.append(aux.getFecha() + aux.getHora() + " Operacion: "+aux.getOperacion() + aux.getUsuario() + "\n");
                 aux = aux.getSiguiente();
             }
             

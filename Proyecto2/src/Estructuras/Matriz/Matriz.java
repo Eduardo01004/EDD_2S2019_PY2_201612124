@@ -38,7 +38,6 @@ public class Matriz {
         boolean estado=true;
         boolean encontrado=false;
         Cabecera temp=firstColum;
-        //----------------------------------Si esta vacia la cabecera--------------------------------------
         if(firstColum == null){
            Cabecera nuevo=new Cabecera();
            nuevo.numero=1;
