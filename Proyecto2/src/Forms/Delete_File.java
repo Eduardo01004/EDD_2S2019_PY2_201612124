@@ -110,6 +110,7 @@ public class Delete_File extends javax.swing.JFrame {
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     hash.bitacora.Insertar("Fecha: "+dateFormat.format(date), " Hora: "+hourFormat.format(date), " Elimino el archivo " 
                             + CM_Files.getSelectedItem().toString(), " Usuario: "+ Metodos.getNombre_user());
+                    hash.bitacora.Graficar();
                     aux.arbol.Eliminar(CM_Files.getSelectedItem().toString(), aux.arbol.raiz);
                     JOptionPane.showMessageDialog(null, "Eliminado ");
                     aux.arbol.GraficarAVL(Metodos.getNombre_user());
@@ -134,16 +135,14 @@ public class Delete_File extends javax.swing.JFrame {
         if (nodo != null){
             NodoMatriz aux=nodo.matriz.Buscar(Metodos.getCarpeta_file1(),Metodos.getCarpeta_file2());
                 if(aux != null){
-                    aux.arbol.inorder(aux.arbol.raiz);
-                    
+                    aux.arbol.inorder(aux.arbol.raiz);   
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "No se encontro las carpetas ");
                 }
                 for(int i = 0; i < Metodos.al.size(); i++){
-                        CM_Files.addItem(Metodos.al.get(i));
-                        System.out.println(Metodos.al.get(i));
-                    }
+                    CM_Files.addItem(Metodos.al.get(i));
+                }
             
         }else{
             JOptionPane.showMessageDialog(null, "No se encontro el Usuario ");

@@ -77,7 +77,7 @@ public class TablaHash {
                     //System.out.println("La variable a insertar ya existe en la tabla: " + nombre);
                 } else {
                     for (int i = 1; i < 10; i++) {
-                        int posicionActual = posicion + (i+1)^2;//cuadratica 
+                        int posicionActual = ((posicion +i)^2)%tamano;//cuadratica 
                         if (posicionActual > tamano) {
                             posicionActual = i;
                         }
@@ -94,7 +94,7 @@ public class TablaHash {
                 }
             }
             if (insertado == true) {
-               // System.out.println("Se inserto correctamente el dato " + nombre);
+                //System.out.println("Se inserto correctamente el dato " + nombre);
             } else {
                 //System.out.println("No se pudo insertar el dato " + nombre);
             }
@@ -135,15 +135,10 @@ public class TablaHash {
         NodoHash tmp = null;
         int pos = 0;
         for (int i = 0; i < tamano; i++) {
-            int posicion = hash2(codigo);
-            if (posicion >= tamano) {
-                posicion -= tamano;
-                pos = posicion;
-            }
-            if (vectorHash[posicion] != null) {
-                if (vectorHash[posicion].nombre.equals(codigo)) {
-                    tmp = vectorHash[posicion];
-                    pos = posicion;
+            if (vectorHash[i] != null) {
+                if (vectorHash[i].nombre.compareTo(codigo) == 0) {
+                    pos = i;
+                    tmp = vectorHash[i];
                     encontrado = true;
                     break;
                 }
@@ -151,9 +146,9 @@ public class TablaHash {
             }
         }
         if (encontrado) {
-            //System.out.println("Se encontro la variable en la posicion " + pos);
+           // System.out.println("Se encontro la variable en la posicion " + pos);
         } else {
-            //System.out.println("La variable " + codigo + "no se encuentra en la tabla");
+            //System.out.println("La variable " + codigo + " no se encuentra en la tabla");
         }
         return tmp;
     }

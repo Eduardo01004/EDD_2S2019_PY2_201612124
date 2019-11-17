@@ -36,6 +36,7 @@ public class mainMatrix {
         matrix.existeY("cache");
         matrix.existeX("oracle");
         matrix.existeY("oracle");
+        matrix.guardarMatriz("/", "/");
         matrix.guardarMatriz("home", "/");
         matrix.guardarMatriz("user", "/");
         matrix.guardarMatriz("var", "/");
@@ -48,7 +49,7 @@ public class mainMatrix {
         matrix.guardarMatriz("oracle", "var");
         matrix.guardarMatriz("cache", "temp");
         
-        //matrix.Grafo();
+        matrix.Grafo();
         matrix.Graficar();
             
     }

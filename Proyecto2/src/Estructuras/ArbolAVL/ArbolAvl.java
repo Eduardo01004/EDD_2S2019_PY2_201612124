@@ -169,6 +169,19 @@ public class ArbolAvl {
         }
         
     }
+    public void Modificar2(NodoAvl nodo,String nombre,String extension, String contenido,String time){
+        NodoAvl aux = Buscar(nombre, nodo);
+        NodoAvl temp=aux;
+        if (temp != null){
+            
+            temp.setNombre(nombre);
+            temp.setExtension(extension);
+            temp.setContenido(contenido);
+            temp.setTimestamp(time);
+            
+        }
+        
+    }
     private NodoAvl sucesor(NodoAvl t) {
     	NodoAvl aux = t;
     	while(aux.getIzquierdo()!= null) {

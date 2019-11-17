@@ -22,11 +22,12 @@ public class main {
 
         //avl.inorder(avl.raiz);
         //avl.Editar("Hola", "Zorro","sda","Sadfas","454");
-        avl.Eliminar("Holi", avl.raiz);
-        avl.Eliminar("Archivo", avl.raiz);
+       // avl.Eliminar("Holi", avl.raiz);
+        //avl.Eliminar("Archivo", avl.raiz);
         //avl.InsertarAvl("Farmacia", ".h", "pito", "546546");
         //avl.InsertarAvl("Rodrigo", ".h", "pito", "546546");
         //avl.Eliminar("Chrome", avl.raiz);
+        avl.Modificar2(avl.raiz, "Main", ".h", "esto es nuevo", "546546");
         System.out.println("Despues de Modificar ");
         //avl.inorder(avl.raiz);
         avl.inorder(avl.raiz);

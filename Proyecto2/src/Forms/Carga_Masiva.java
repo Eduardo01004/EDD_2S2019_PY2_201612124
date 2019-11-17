@@ -177,24 +177,16 @@ public class Carga_Masiva extends javax.swing.JFrame {
                CsvReader leerUser=new CsvReader(abre.toString());
                leerUser.readHeaders();
                while (leerUser.readRecord()){
-                   
-                   
-                   
                     if(leerUser.get(1).length() < 8){
                         Object[] ob2 = new Object[2];
                         ob2[0] = leerUser.get(0);
                         ob2[1] = "Password menor a 8 caracteres";
                         modelo.addRow(ob2);
-                        //System.out.println(leerUser.get(0)+ "Password menor a 8 caracteres ");
-                        //jTextArea2.append(leerUser.get(0)+ " Password menor a 8 caracteres \n");
-                        
                     }else if(hash.tabla.buscarNodo(leerUser.get(0)) == true){
                         Object[] ob3 = new Object[2];
                         ob3[0] = leerUser.get(0);
                         ob3[1] = "Ya se encuentra insertado";
                         modelo.addRow(ob3);
-                        //System.out.println(leerUser.get(0)+ "Ya existe ");
-                        //jTextArea2.append(leerUser.get(0)+ " Ya existe\n\n");
                     }
                     else{
                         ob[0] = leerUser.get(0);
@@ -202,7 +194,6 @@ public class Carga_Masiva extends javax.swing.JFrame {
                         hash.tabla.insertar(leerUser.get(0), Metodos.sha256(leerUser.get(1)),hourdateFormat.format(date));
                         modelo.addRow(ob);
                         jTable1.setModel(modelo);
-                        //jTextArea1.append(leerUser.get(0)+" Se inserto Correctamente \n\n");
                     }
                }
                leerUser.close();

@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Estructuras.ArbolAVL.NodoAvl;
 import Estructuras.Inserts.Insert_Hash;
 import Estructuras.Inserts.Metodos;
 import Estructuras.Matriz.Cabecera;
@@ -206,6 +207,7 @@ public class Crear_Archivo extends javax.swing.JFrame {
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date), " Creo el Archivo " +
                     txt_name.getText(), " Usuario: "+ Metodos.getNombre_user());
+                hash.bitacora.Graficar();
             }
         }    
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -237,11 +239,29 @@ public class Crear_Archivo extends javax.swing.JFrame {
                     if (pito != null){
                         NodoMatriz aux=pito.matriz.Buscar(CB_Carpetas.getSelectedItem().toString(),CB_Carpeta2.getSelectedItem().toString());
                         if(aux != null){
-                            aux.arbol.InsertarAvl(leerUser.get(0).split("\\.")[0], leerUser.get(0).split("\\.")[1], leerUser.get(1),hourdateFormat.format(date) );
-                            aux.arbol.GraficarAVL(Metodos.getNombre_user());
-                            hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date), " Creo el Archivo " +
-                            leerUser.get(0).split("\\.")[0], " Usuario: "+ Metodos.getNombre_user());
+                            NodoAvl rai = aux.arbol.Buscar(leerUser.get(0).split("\\.")[0], aux.arbol.raiz);
+                            if (rai == null){
+                                aux.arbol.InsertarAvl(leerUser.get(0).split("\\.")[0], leerUser.get(0).split("\\.")[1], leerUser.get(1),hourdateFormat.format(date) );
+                                aux.arbol.GraficarAVL(Metodos.getNombre_user());
+                                hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date), " Creo el Archivo " +
+                                leerUser.get(0).split("\\.")[0], " Usuario: "+ Metodos.getNombre_user());
+                                hash.bitacora.Graficar();
+                            }
+                            else{
+                                int msj =JOptionPane.showConfirmDialog(null, "Desea Sobreescribir el Archivo ");
+                                if (msj == JOptionPane.YES_OPTION){
+                                    aux.arbol.Modificar2(aux.arbol.raiz, leerUser.get(0).split("\\.")[0], leerUser.get(0).split("\\.")[1], leerUser.get(1),hourdateFormat.format(date) );
+                                }else{
+                                }
+                            }
+                            
                         }
+                        else {
+                            JOptionPane.showMessageDialog(null, "No se encuentra la direccion");
+                        }
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "No se encuentra el usuario","Advertencia",JOptionPane.WARNING_MESSAGE);
                     }
                     
                }

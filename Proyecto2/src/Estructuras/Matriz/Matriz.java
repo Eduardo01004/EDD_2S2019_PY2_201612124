@@ -75,7 +75,7 @@ public class Matriz {
                     nuevo.siguiente=null;
                     lastColum=nuevo;
                 }else{
-                    temp=firstColum ;
+                    temp=firstColum;
                     estado=true;
                     while(estado){
                         if(temp.siguiente!=null){
@@ -351,7 +351,11 @@ public class Matriz {
                NodoMatriz nodo=aux.primero;
                while (nodo != null){
                    //System.out.println("la carpeta tiene: "+aux.carpeta+" con  el archivo/carpeta "+nodo.x+" Y los archivos " +no);
+                   if(aux.carpeta.compareTo("/") == 0 && nodo.x.compareTo("/") == 0){
+                       pw.println("\""+aux.carpeta+  "\" -> \"" +nodo.x+"\"[style=invis]");
+                   }else{
                    pw.println("\""+aux.carpeta+  "\" -> \"" +nodo.x+"\"");
+                   }
                    nodo=nodo.arriba;
                 }
                 aux=aux.siguiente;
@@ -396,7 +400,7 @@ public class Matriz {
                aux=firstF;
                while(aux != null){
                    if(aux.siguiente != null){
-                       pw.println(aux.hashCode()+"->"+aux.siguiente.hashCode()+"[dir=both];");
+                       pw.println(aux.hashCode()+"->"+aux.siguiente.hashCode()+"[dir=normal];");
                    }
                    aux=aux.siguiente;
                }
@@ -409,7 +413,7 @@ public class Matriz {
                aux2=firstColum;
                while(aux2 != null){
                    if(aux2.siguiente != null){
-                       pw.println(aux2.hashCode()+"->"+aux2.siguiente.hashCode()+"[dir=both];");
+                       pw.println(aux2.hashCode()+"->"+aux2.siguiente.hashCode()+"[dir=normal];");
                    }
                    aux2=aux2.siguiente;
                }              
@@ -429,7 +433,13 @@ public class Matriz {
                    NodoMatriz temp=aux2.primero;
                    if(temp != null){
                        while(temp != null){
-                           pw.println(temp.hashCode()+" [style=filled,fillcolor=seashell2,label= \""+temp.y+"/"+temp.x+"\" group = "+level+" ];");
+                           if (temp.x.compareTo("/") == 0 && temp.y.compareTo("/") == 0){
+                               pw.print(temp.hashCode()+" [style=invis,fillcolor=seashell2,label= \""+temp.y+"/"+temp.x+"\" group = "+level+" ];");
+                               
+                           }else{
+                               pw.println(temp.hashCode()+" [style=filled,fillcolor=seashell2,label= \""+temp.y+"/"+temp.x+"\" group = "+level+" ];");
+                           }
+                           
                            temp=temp.siguiente;
                        }
                    }
@@ -439,9 +449,18 @@ public class Matriz {
                while(aux != null){
                    NodoMatriz temp=aux.primero;
                    if(temp != null){
-                       pw.println(aux.hashCode()+"->"+temp.hashCode());
+                       if(temp.x.compareTo("/") == 0 && temp.y.compareTo("/")==0){
+                            pw.println(aux.hashCode()+"->"+temp.hashCode()+"[style= invis];");
+                       }
+                       else{
+                            pw.println(aux.hashCode()+"->"+temp.hashCode()+"[dir=both];");
+                       }
                        while(temp.arriba != null){
+                           if (temp.x.compareTo("/")==0 && temp.y.compareTo("/")==0){
+                               //pw.println(temp.hashCode()+"->"+temp.arriba.hashCode());
+                           }else{
                            pw.println(temp.hashCode()+"->"+temp.arriba.hashCode()+"[dir=both];");
+                           }
                            temp=temp.arriba;
                        }
                        pw.println("{ rank = same; "+aux.hashCode()+";");
@@ -459,7 +478,13 @@ public class Matriz {
                while(aux2 != null){
                    NodoMatriz temp = aux2.primero;
                    if(temp != null){
-                       pw.println(aux2.hashCode()+"->"+temp.hashCode()+"[dir=both];");
+                       if(temp.x.compareTo("/") == 0 && temp.y.compareTo("/")==0){
+                            pw.println(aux2.hashCode()+"->"+temp.hashCode()+"[style= invis];");
+                       }
+                       else{
+                            pw.println(aux2.hashCode()+"->"+temp.hashCode()+"[dir=both];");
+                       }
+                      
                        while(temp.siguiente != null){
                            pw.println(temp.hashCode()+"->"+temp.siguiente.hashCode()+"[dir=both];");
                            temp=temp.siguiente;

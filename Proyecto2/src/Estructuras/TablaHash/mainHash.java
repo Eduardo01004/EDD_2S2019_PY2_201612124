@@ -16,10 +16,18 @@ public class mainHash {
     static TablaHash tabla = new TablaHash();
 	public  static void main(String[] args)  {
             tabla=new TablaHash();
-            tabla.insertar("Eduardo","pus","sds");
-	    tabla.insertar("Saul", "sdas","sda");
+            tabla.insertar("Juan123","pus","sds");
+	    tabla.insertar("Ricardo123", "sdas","sda");
+            tabla.insertar("Pedro456", "sdas","sda");
+            tabla.insertar("Eduardo123", "sdas","sda");
+            tabla.insertar("Dennis", "sdas","sda");
+            tabla.insertar("Popo", "sdas","sda");
+            tabla.insertar("Antonio24", "sdas","sda");
+            
+            //tabla.insertar("popo", "sdas","sda");
+            //tabla.insertar("Eduardo123", "sdas","sda");
 	    tabla.generarDotTablaHash();
-            NodoHash nodo=tabla.extraerNodo("Saul");
+            NodoHash nodo=tabla.extraerNodo("Eduardo123");
             if (nodo != null){
                 nodo.matriz.existeX("/");
                 nodo.matriz.existeY("/");

@@ -122,6 +122,7 @@ public class Crear_Carpeta extends javax.swing.JFrame {
     public void InsertarRaiz(NodoHash nodo){
         nodo.matriz.existeX("/");
         nodo.matriz.existeY("/");
+        nodo.matriz.guardarMatriz("/", "/");
         Cabecera aux=nodo.matriz.firstColum;
         while(aux != null){
             CB_Carpeta.addItem(aux.carpeta);
@@ -140,6 +141,7 @@ public class Crear_Carpeta extends javax.swing.JFrame {
             nodo.matriz.Graficar();
             nodo.matriz.Grafo();
             hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: " +hourFormat.format(date), " Creo La carpeta " + file, " Usuario: "+ Metodos.getNombre_user());
+            hash.bitacora.Graficar();
         }else{
             JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
         }
