@@ -141,24 +141,17 @@ public class Reportes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_hashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hashActionPerformed
-        ImageIcon img = new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\HashTable.png"); 
+        ImageIcon img = new ImageIcon("HashTable.png"); 
         Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
-        
         jLabel1.setIcon(icono);
         jLabel1.repaint();
     }//GEN-LAST:event_btn_hashActionPerformed
 
     private void btn_matrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_matrizActionPerformed
-        NodoHash aux = hash.tabla.extraerNodo(Metodos.getNombre_user());
-        if (aux != null){
-            aux.matriz.Graficar();
-            ImageIcon img=new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\Matriz.jpg"); 
-            ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
-            jLabel1.setIcon(icono);
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
-        }            
+ 
+            ImageIcon img=new ImageIcon("Matriz.png"); 
+            ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
+            jLabel1.setIcon(icono);           
     }//GEN-LAST:event_btn_matrizActionPerformed
 
     private void brn_avlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_avlActionPerformed
@@ -168,8 +161,8 @@ public class Reportes extends javax.swing.JFrame {
             if (temp != null){
                 temp.arbol.GraficarAVL(Metodos.getNombre_user());
                 aux.matriz.Grafo();
-                ImageIcon img=new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\Avl.png"); 
-                ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon img=new ImageIcon("Avl.png"); 
+                ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
                 jLabel1.setIcon(icono);
             }
             else {
@@ -182,18 +175,9 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_brn_avlActionPerformed
 
     private void btn_grafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafoActionPerformed
-        NodoHash aux = hash.tabla.extraerNodo(Metodos.getNombre_user());
-        if (aux != null){
-            aux.matriz.Grafo();
-            ImageIcon img=new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\Grafo.jpg"); 
-            ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
-            jLabel1.setIcon(icono);
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
-        }
-        
-        
+        ImageIcon img=new ImageIcon("Grafo.png"); 
+        ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
+        jLabel1.setIcon(icono);  
     }//GEN-LAST:event_btn_grafoActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -203,8 +187,8 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btn_BitacoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BitacoraActionPerformed
-        ImageIcon img=new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\Bitacora.png"); 
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon img=new ImageIcon("Bitacora.png"); 
+        Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
         jLabel1.setIcon(icono);
     }//GEN-LAST:event_btn_BitacoraActionPerformed
 

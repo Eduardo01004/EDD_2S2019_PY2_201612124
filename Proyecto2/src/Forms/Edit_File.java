@@ -192,9 +192,10 @@ public class Edit_File extends javax.swing.JFrame {
                     hash.bitacora.Graficar();
                     
                     NodoAvl rama = aux.arbol.Buscar(CB_File.getSelectedItem().toString(), aux.arbol.raiz);
-                    if (rama == null){
+                    if (rama != null){
                         aux.arbol.Editar(CB_File.getSelectedItem().toString(), txt_name.getText(), txt_extension.getText(), txt_contenido.getText(), txt_time.getText());
                         aux.arbol.GraficarAVL(Metodos.getNombre_user());
+                        JOptionPane.showMessageDialog(null, "Arcbivo Modificado");
                     }else{
                         JOptionPane.showMessageDialog(null, "Ya existe un archivo con ese nombre!!");
                     }

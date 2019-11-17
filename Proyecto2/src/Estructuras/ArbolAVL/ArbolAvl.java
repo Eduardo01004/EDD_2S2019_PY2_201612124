@@ -352,30 +352,29 @@ public class ArbolAvl {
             fw = new FileWriter("Imagen.dot");
             pw = new PrintWriter(fw);
             pw.println("digraph  imagen {\n node [shape=plaintext];\n");
+            mat=hash.matriz.BuscarC(y);
+            pw.println("NO_HAY_CARPETAS[label=<<TABLE BORDER=\"0\">\n<TR>");
             
-            mat=hash.matriz.BuscarC(x);
-            pw.println("struct1[label=<<TABLE BORDER=\"0\">\n<TR>");
-            if (mat != null){
+            if (mat != null ){
                 while(mat != null){
                     pw.println(" <TD WIDTH=\"30\" HEIGHT=\"30\" BORDER=\"0\"><IMG SRC=\"imagenes/carpeta.png\"/></TD>");
-                    //
                     mat=mat.arriba;
+                }
+            }else{
                 }
                 pw.println("</TR>");
                 pw.println("<TR>");
-                NodoMatriz mat2=hash.matriz.BuscarC(x);
+                NodoMatriz mat2=hash.matriz.BuscarC(y);
                 if (mat2 != null){
                     while(mat2 != null){
                         pw.println("<TD WIDTH=\"30\" HEIGHT=\"30\" BORDER=\"0\" >"+ mat2.x +"</TD>");
                         mat2=mat2.arriba;
                     }
                 }
-                
-            }
-            else{
-            }
+            
             pw.println("</TR></TABLE>>];");
             pw.println("struct2[label=<<TABLE BORDER=\"0\"><TR>");
+            
             if (Metodos.al.size() > 0){
                 for(int i=0; i<Metodos.al.size(); i++){
                     pw.println(" <TD WIDTH=\"30\" HEIGHT=\"30\" BORDER=\"0\" ><IMG SRC=\"imagenes/archivo.png\"/></TD>");
@@ -390,10 +389,7 @@ public class ArbolAvl {
                 pw.println("<TD>"+ "NO HAY ARCHIVOS" +"</TD>");
             }
             pw.println("</TR></TABLE>>];");
-            
-
             pw.println("}\n");
-            
             
         } catch (Exception e) {
             e.printStackTrace();

@@ -70,6 +70,7 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         checkbox1.setLabel("checkbox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Drive Files");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usac File Drive", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(0, 51, 255))); // NOI18N
@@ -369,12 +370,12 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         
         NodoHash nodo = hash.tabla.extraerNodo(Metodos.getNombre_user());
         if (nodo != null){
-            NodoMatriz aux = nodo.matriz.BuscarC(padre);
+            NodoMatriz aux = nodo.matriz.Buscar(padre,hijo);
             if (aux != null){
                 aux.arbol.inorder(aux.arbol.raiz);
                 aux.arbol.Prueba(nodo, aux, padre, hijo);
-                ImageIcon img=new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\ImagenDrive.png"); 
-                Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel4.getWidth(), jLabel4.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon img=new ImageIcon("ImagenDrive.png"); 
+                Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel4.getWidth(), jLabel4.getHeight(), Image.SCALE_SMOOTH));
                 jLabel4.setIcon(icono);
                 
             }else{JOptionPane.showMessageDialog(null, "No se encotro la carpeta " + hijo);}

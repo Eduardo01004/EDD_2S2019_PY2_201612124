@@ -229,6 +229,7 @@ public class Compartir_Archivos extends javax.swing.JFrame {
             NodoMatriz aux = nodo.matriz.Buscar("/","/");
             if (aux != null){
                 aux.arbol.InsertarAvl(archivo, ext, content, time);
+                JOptionPane.showMessageDialog(null,"\n Archivo Compartido","Listo!!!",JOptionPane.WARNING_MESSAGE);
             }
             else{
                 JOptionPane.showMessageDialog(null,"\n No tiene Carpeta Raiz","ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);

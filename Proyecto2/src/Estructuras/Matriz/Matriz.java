@@ -35,62 +35,59 @@ public class Matriz {
         return total;
     }
     public void existeX(String carpeta){
-        boolean estado=true;
-        boolean encontrado=false;
-        Cabecera temp=firstColum;
+        boolean estado = true;
+        boolean encontrado = false;
+        Cabecera temp = firstColum;
         if(firstColum == null){
-           Cabecera nuevo=new Cabecera();
-           nuevo.numero=1;
-            nuevo.carpeta=carpeta;
-            nuevo.primero=null;
-            nuevo.siguiente=null;
-            firstColum=nuevo;
-            lastColum=nuevo;
+           Cabecera nuevo = new Cabecera();
+            nuevo.setCarpeta(carpeta);
+            nuevo.setPrimero(null);
+            nuevo.setSiguiente(null);
+            firstColum = nuevo;
+            lastColum = nuevo;
         }else{
-            while(estado==true){
-                if(temp!=null){
+            while(estado == true){
+                if(temp != null){
                     if(temp.carpeta.compareTo(carpeta) == 0){
-                        estado=false;
-                        temp.numero++;
-                        encontrado=true;
+                        estado = false;
+                        encontrado = true;
                     }else{
-                        temp=temp.siguiente;
+                        temp=temp.getSiguiente();
                     }
                 }else{
-                    estado=false;
-                    encontrado=false;
+                    estado = false;
+                    encontrado = false;
                 }
             }
 
-            if(encontrado==false){
-                Cabecera nuevo=new Cabecera();
-                nuevo.carpeta=carpeta;
-                nuevo.primero=null;
-                nuevo.numero=nuevo.numero+1;
+            if(encontrado == false){
+                Cabecera nuevo = new Cabecera();
+                nuevo.setCarpeta(carpeta);
+                nuevo.setPrimero(null);
                 if(carpeta.compareTo(firstColum.carpeta) < 0 ){
-                    nuevo.siguiente=firstColum;
-                    firstColum=nuevo;
+                    nuevo.setSiguiente(firstColum);
+                    firstColum = nuevo;
                 }else if(carpeta.compareTo(lastColum.carpeta) > 0){
-                    lastColum.siguiente=nuevo;
-                    nuevo.siguiente=null;
-                    lastColum=nuevo;
+                    lastColum.setSiguiente(nuevo);
+                    nuevo.setSiguiente(null);
+                    lastColum = nuevo;
                 }else{
-                    temp=firstColum;
-                    estado=true;
+                    temp = firstColum;
+                    estado = true;
                     while(estado){
-                        if(temp.siguiente!=null){
-                            if(carpeta.compareTo(temp.siguiente.carpeta) < 0){
-                              estado=false;
+                        if(temp.getSiguiente() != null){
+                            if(carpeta.compareTo(temp.getSiguiente().getCarpeta()) < 0){
+                              estado = false;
                             }else{
-                                temp=temp.siguiente;
+                                temp = temp.getSiguiente();
                             }
                         }else{
-                            estado=false;
+                            estado = false;
                         }
                     }
-                    Cabecera aux=temp.siguiente;
-                    temp.siguiente=nuevo;
-                    nuevo.siguiente=aux;
+                    Cabecera aux = temp.getSiguiente();
+                    temp.setSiguiente(nuevo);
+                    nuevo.setSiguiente(aux);
                 }
 
 
@@ -288,7 +285,6 @@ public class Matriz {
         }
    public void Insertar(String a,String b){
        existeX(a);
-       //ExisteX(a, archivo);
        existeY(b);
        guardarMatriz(a, b);
        
@@ -337,6 +333,11 @@ public class Matriz {
         }
         return null;
    }
+   
+   public void Modificar(){
+       
+   }
+   
    public void Grafo(){
        FileWriter fichero = null;
        PrintWriter pw = null;
@@ -364,8 +365,8 @@ public class Matriz {
            fichero.close();
            String doPath="C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
            String fileInputPath = "Grafo.dot";
-           String fileOutPath = "Grafo.jpg";
-           String tParam = "-Tjpg";
+           String fileOutPath = "Grafo.png";
+           String tParam = "-Tpng";
            String toParam = "-o";
            String[] cmd = new String[5];
            cmd[0] = doPath;
@@ -499,8 +500,8 @@ public class Matriz {
            fichero.close();
            String doPath="C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
            String fileInputPath = "Matriz.dot";
-           String fileOutPath = "Matriz.jpg";
-           String tParam = "-Tjpg";
+           String fileOutPath = "Matriz.png";
+           String tParam = "-Tpng";
            String toParam = "-o";
            String[] cmd = new String[5];
            cmd[0] = doPath;
@@ -508,14 +509,10 @@ public class Matriz {
            cmd[2] = fileInputPath;
            cmd[3] = toParam;
            cmd[4] = fileOutPath;
-
            Runtime rt = Runtime.getRuntime();
            rt.exec(cmd);
            
        }catch(Exception e){}
-       
-       
-       
    }
     
     

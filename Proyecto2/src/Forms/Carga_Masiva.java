@@ -187,6 +187,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
                         ob3[0] = leerUser.get(0);
                         ob3[1] = "Ya se encuentra insertado";
                         modelo.addRow(ob3);
+                        
                     }
                     else{
                         ob[0] = leerUser.get(0);

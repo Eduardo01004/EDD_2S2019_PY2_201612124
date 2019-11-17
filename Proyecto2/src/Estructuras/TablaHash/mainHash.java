@@ -50,7 +50,7 @@ public class mainHash {
                 nodo.matriz.guardarMatriz("pito", "usac");
                 nodo.matriz.guardarMatriz("view", "vendor");
                 nodo.matriz.Graficar();
-                NodoMatriz s = nodo.matriz.Buscar("documents","usac");
+                NodoMatriz s = nodo.matriz.Buscar("usac","pito");
                 if (s != null){
                     s.arbol.InsertarAvl("un_archivo", "Sd", "asd","asd");
                     s.arbol.InsertarAvl("otro_archivo", "Sd", "asd","asd");

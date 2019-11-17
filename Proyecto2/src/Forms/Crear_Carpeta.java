@@ -51,6 +51,7 @@ public class Crear_Carpeta extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Crear Carpeta");
 
         CB_Carpeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carpetas" }));
 
