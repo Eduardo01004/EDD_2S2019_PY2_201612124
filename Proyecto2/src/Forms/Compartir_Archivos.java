@@ -31,6 +31,7 @@ public class Compartir_Archivos extends javax.swing.JFrame {
     
     public Compartir_Archivos() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

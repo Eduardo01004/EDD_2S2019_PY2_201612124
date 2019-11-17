@@ -1,124 +1,24 @@
 digraph G{
 node [shape = box]
 raiz[label="Matriz"  group=1];
-1635985705 [label="/" group = 1];
-1620303253 [label="cache" group = 1];
-90320863 [label="credentials" group = 1];
-1216590855 [label="documents" group = 1];
-2107447833 [label="folder" group = 1];
-60559178 [label="home" group = 1];
-395629617 [label="oracle" group = 1];
-1122134344 [label="temp" group = 1];
-1471868639 [label="usac" group = 1];
-876563773 [label="user" group = 1];
-87765719 [label="var" group = 1];
-1413653265 [label="videos" group = 1];
-1635985705->1620303253[dir=normal];
-1620303253->90320863[dir=normal];
-90320863->1216590855[dir=normal];
-1216590855->2107447833[dir=normal];
-2107447833->60559178[dir=normal];
-60559178->395629617[dir=normal];
-395629617->1122134344[dir=normal];
-1122134344->1471868639[dir=normal];
-1471868639->876563773[dir=normal];
-876563773->87765719[dir=normal];
-87765719->1413653265[dir=normal];
-1007603019 [label="/" group = 49];
-1776957250 [label="cache" group = 502];
-1268066861 [label="credentials" group = 1168];
-827966648 [label="documents" group = 980];
-1938056729 [label="folder" group = 638];
-1273765644 [label="home" group = 427];
-701141022 [label="oracle" group = 632];
-1447689627 [label="temp" group = 440];
-112061925 [label="usac" group = 430];
-764577347 [label="user" group = 449];
-1344645519 [label="var" group = 331];
-1234776885 [label="videos" group = 652];
-1007603019->1776957250[dir=normal];
-1776957250->1268066861[dir=normal];
-1268066861->827966648[dir=normal];
-827966648->1938056729[dir=normal];
-1938056729->1273765644[dir=normal];
-1273765644->701141022[dir=normal];
-701141022->1447689627[dir=normal];
-1447689627->112061925[dir=normal];
-112061925->764577347[dir=normal];
-764577347->1344645519[dir=normal];
-1344645519->1234776885[dir=normal];
-raiz ->1635985705
-raiz ->1007603019
+2070376499 [label="/" group = 1];
+1319787705 [label="A" group = 1];
+2070376499->1319787705[dir=normal];
+716179205 [label="/" group = 49];
+1467277627 [label="A" group = 67];
+716179205->1467277627[dir=normal];
+raiz ->2070376499
+raiz ->716179205
 { rank  = same; raiz 
-1007603019;
-1776957250;
-1268066861;
-827966648;
-1938056729;
-1273765644;
-701141022;
-1447689627;
-112061925;
-764577347;
-1344645519;
-1234776885;
+716179205;
+1467277627;
 }
-1310540333 [style=invis,fillcolor=seashell2,label= "///" group = 49 ];120694604 [style=filled,fillcolor=seashell2,label= "temp/cache" group = 502 ];
-916419490 [style=filled,fillcolor=seashell2,label= "user/credentials" group = 1168 ];
-522764626 [style=filled,fillcolor=seashell2,label= "home/documents" group = 980 ];
-2106620844 [style=filled,fillcolor=seashell2,label= "user/folder" group = 638 ];
-2006034581 [style=filled,fillcolor=seashell2,label= "//home" group = 427 ];
-979294118 [style=filled,fillcolor=seashell2,label= "var/oracle" group = 632 ];
-1663411182 [style=filled,fillcolor=seashell2,label= "//temp" group = 440 ];
-488044861 [style=filled,fillcolor=seashell2,label= "documents/usac" group = 430 ];
-1740189450 [style=filled,fillcolor=seashell2,label= "//user" group = 449 ];
-731260860 [style=filled,fillcolor=seashell2,label= "//var" group = 331 ];
-1709366259 [style=filled,fillcolor=seashell2,label= "home/videos" group = 652 ];
-1635985705->1310540333[style= invis];
-2006034581->1663411182[dir=both];
-1663411182->1740189450[dir=both];
-1740189450->731260860[dir=both];
-{ rank = same; 1635985705;
-1310540333;
-2006034581;
-1663411182;
-1740189450;
-731260860;
+1342108747 [style=invis,fillcolor=seashell2,label= "///" group = 49 ];1664487221 [style=filled,fillcolor=seashell2,label= "//A" group = 67 ];
+2070376499->1342108747[style= invis];
+{ rank = same; 2070376499;
+1342108747;
+1664487221;
 }
-1216590855->488044861[dir=both];
-{ rank = same; 1216590855;
-488044861;
-}
-60559178->522764626[dir=both];
-522764626->1709366259[dir=both];
-{ rank = same; 60559178;
-522764626;
-1709366259;
-}
-1122134344->120694604[dir=both];
-{ rank = same; 1122134344;
-120694604;
-}
-876563773->916419490[dir=both];
-916419490->2106620844[dir=both];
-{ rank = same; 876563773;
-916419490;
-2106620844;
-}
-87765719->979294118[dir=both];
-{ rank = same; 87765719;
-979294118;
-}
-1007603019->1310540333[style= invis];
-1776957250->120694604[dir=both];
-1268066861->916419490[dir=both];
-827966648->522764626[dir=both];
-1938056729->2106620844[dir=both];
-1273765644->2006034581[dir=both];
-701141022->979294118[dir=both];
-1447689627->1663411182[dir=both];
-112061925->488044861[dir=both];
-764577347->1740189450[dir=both];
-1344645519->731260860[dir=both];
-1234776885->1709366259[dir=both];
+716179205->1342108747[style= invis];
+1467277627->1664487221[dir=both];
 }

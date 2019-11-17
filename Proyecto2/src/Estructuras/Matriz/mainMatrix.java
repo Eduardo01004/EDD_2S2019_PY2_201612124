@@ -5,12 +5,15 @@
  */
 package Estructuras.Matriz;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author Eduardo
  */
 public class mainMatrix {
-    public  static void main(String[] args)  {
+    public  static void main(String[] args) throws IOException  {
         Matriz matrix= new Matriz();
         matrix.existeX("/");
         matrix.existeY("/");
@@ -51,6 +54,8 @@ public class mainMatrix {
         
         matrix.Grafo();
         matrix.Graficar();
+        
+        
             
     }
     

@@ -50,12 +50,12 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         btnCrear_Carpeta = new javax.swing.JButton();
         btnMod_Carpeta = new javax.swing.JButton();
         btnDelete_Carpeta = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         btnCrear_file = new javax.swing.JButton();
         btnMod_file = new javax.swing.JButton();
         btnDelete_file = new javax.swing.JButton();
         btnSubir_file = new javax.swing.JButton();
+        btn_Download = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -66,10 +66,6 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         checkbox1.setLabel("checkbox1");
 
@@ -77,6 +73,7 @@ public class Manejo_Archivos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usac File Drive", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(0, 51, 255))); // NOI18N
+        jPanel1.setToolTipText("Manejo de Archivos");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Carpetas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
@@ -94,8 +91,6 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         btnDelete_Carpeta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\imagenes\\delete.png")); // NOI18N
         btnDelete_Carpeta.setText("Eliminar");
 
-        jButton4.setText("Subir");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -105,8 +100,7 @@ public class Manejo_Archivos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnMod_Carpeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCrear_Carpeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDelete_Carpeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnDelete_Carpeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -118,9 +112,7 @@ public class Manejo_Archivos extends javax.swing.JFrame {
                 .addComponent(btnMod_Carpeta)
                 .addGap(18, 18, 18)
                 .addComponent(btnDelete_Carpeta)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Archivos"));
@@ -135,6 +127,7 @@ public class Manejo_Archivos extends javax.swing.JFrame {
             }
         });
 
+        btnMod_file.setBackground(new java.awt.Color(153, 153, 255));
         btnMod_file.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\imagenes\\a.png")); // NOI18N
         btnMod_file.setText("Modificar");
         btnMod_file.setToolTipText("Edit File");
@@ -144,6 +137,7 @@ public class Manejo_Archivos extends javax.swing.JFrame {
             }
         });
 
+        btnDelete_file.setBackground(new java.awt.Color(153, 153, 255));
         btnDelete_file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Forms/delete.png"))); // NOI18N
         btnDelete_file.setText("Eliminar");
         btnDelete_file.addActionListener(new java.awt.event.ActionListener() {
@@ -152,11 +146,21 @@ public class Manejo_Archivos extends javax.swing.JFrame {
             }
         });
 
-        btnSubir_file.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\imagenes\\subir.png")); // NOI18N
+        btnSubir_file.setBackground(new java.awt.Color(153, 153, 255));
+        btnSubir_file.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\imagenes\\opcion-de-compartir.png")); // NOI18N
         btnSubir_file.setText("Compartir");
         btnSubir_file.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubir_fileActionPerformed(evt);
+            }
+        });
+
+        btn_Download.setBackground(new java.awt.Color(153, 153, 255));
+        btn_Download.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\imagenes\\subir.png")); // NOI18N
+        btn_Download.setText("Descargar");
+        btn_Download.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DownloadActionPerformed(evt);
             }
         });
 
@@ -170,7 +174,8 @@ public class Manejo_Archivos extends javax.swing.JFrame {
                     .addComponent(btnMod_file, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCrear_file, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete_file, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSubir_file, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSubir_file, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Download, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -184,7 +189,9 @@ public class Manejo_Archivos extends javax.swing.JFrame {
                 .addComponent(btnDelete_file, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSubir_file, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(btn_Download, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton1.setText("Exit");
@@ -275,9 +282,8 @@ public class Manejo_Archivos extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
                         .addComponent(jButton3)
-                        .addGap(71, 71, 71)
+                        .addGap(55, 55, 55)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -298,22 +304,11 @@ public class Manejo_Archivos extends javax.swing.JFrame {
                             .addComponent(jButton5)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 24, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-
-        jMenu1.setText("Opciones");
-
-        jMenuItem1.setText("Bitacora");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Reportes");
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -412,6 +407,12 @@ public class Manejo_Archivos extends javax.swing.JFrame {
         compartir.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSubir_fileActionPerformed
+
+    private void btn_DownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DownloadActionPerformed
+      Download_Files descarga = new Download_Files();
+      descarga.setVisible(true);
+      dispose();
+    }//GEN-LAST:event_btn_DownloadActionPerformed
     
     public void Mostrar_ComboBox(){
         NodoHash nodo=hash.tabla.extraerNodo(Metodos.getNombre_user());
@@ -466,19 +467,15 @@ public class Manejo_Archivos extends javax.swing.JFrame {
     private javax.swing.JButton btnMod_Carpeta;
     private javax.swing.JButton btnMod_file;
     private javax.swing.JButton btnSubir_file;
+    private javax.swing.JButton btn_Download;
     private java.awt.Checkbox checkbox1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

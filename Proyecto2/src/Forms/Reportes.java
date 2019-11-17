@@ -141,9 +141,11 @@ public class Reportes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_hashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hashActionPerformed
-        ImageIcon img=new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\HashTable.png"); 
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon img = new ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\HashTable.png"); 
+        Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
+        
         jLabel1.setIcon(icono);
+        jLabel1.repaint();
     }//GEN-LAST:event_btn_hashActionPerformed
 
     private void btn_matrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_matrizActionPerformed

@@ -208,8 +208,14 @@ public class Crear_Archivo extends javax.swing.JFrame {
                 hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date), " Creo el Archivo " +
                     txt_name.getText(), " Usuario: "+ Metodos.getNombre_user());
                 hash.bitacora.Graficar();
+                JOptionPane.showMessageDialog(null, "Archivo Creado");
             }
-        }    
+            else{
+                JOptionPane.showMessageDialog(null, "No se encuentra la direccion");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
     
     public void Mostrar_ComboBox(){
@@ -252,6 +258,7 @@ public class Crear_Archivo extends javax.swing.JFrame {
                                 if (msj == JOptionPane.YES_OPTION){
                                     aux.arbol.Modificar2(aux.arbol.raiz, leerUser.get(0).split("\\.")[0], leerUser.get(0).split("\\.")[1], leerUser.get(1),hourdateFormat.format(date) );
                                 }else{
+                                    
                                 }
                             }
                             
@@ -265,6 +272,7 @@ public class Crear_Archivo extends javax.swing.JFrame {
                     }
                     
                }
+               JOptionPane.showMessageDialog(null, "Archivos Cargados con exito");
                leerUser.close();
             }  
 

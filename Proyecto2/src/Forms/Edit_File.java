@@ -13,6 +13,7 @@ import Estructuras.TablaHash.NodoHash;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,6 +54,7 @@ public class Edit_File extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modificar");
 
         jLabel1.setText("ARCHIVO");
 
@@ -188,10 +190,21 @@ public class Edit_File extends javax.swing.JFrame {
                     hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date), " Modifico el Archivo " 
                             + CB_File.getSelectedItem().toString()+" a "+txt_name.getText() , " Usuario: "+ Metodos.getNombre_user());
                     hash.bitacora.Graficar();
-                    aux.arbol.Editar(CB_File.getSelectedItem().toString(), txt_name.getText(), txt_extension.getText(), txt_contenido.getText(), txt_time.getText());
-                    aux.arbol.GraficarAVL(Metodos.getNombre_user());
+                    
+                    NodoAvl rama = aux.arbol.Buscar(CB_File.getSelectedItem().toString(), aux.arbol.raiz);
+                    if (rama == null){
+                        aux.arbol.Editar(CB_File.getSelectedItem().toString(), txt_name.getText(), txt_extension.getText(), txt_contenido.getText(), txt_time.getText());
+                        aux.arbol.GraficarAVL(Metodos.getNombre_user());
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Ya existe un archivo con ese nombre!!");
+                    }
+                    
+                }else {
+                    JOptionPane.showMessageDialog(null, "No se encuentra la direccion");
                 }
             
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -213,8 +226,6 @@ public class Edit_File extends javax.swing.JFrame {
                     }
                        
                 }
-                
-            
         }
     }//GEN-LAST:event_CB_FileItemStateChanged
 

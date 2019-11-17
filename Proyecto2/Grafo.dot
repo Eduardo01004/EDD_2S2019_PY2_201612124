@@ -2,15 +2,5 @@ digraph G{rankdir=LR;
  graph [splines=ortho, nodesep=0.5];
 node [shape=ellipse, style=filled]
 "/" -> "/"[style=invis]
-"/" -> "home"
-"/" -> "temp"
-"/" -> "user"
-"/" -> "var"
-"documents" -> "usac"
-"home" -> "documents"
-"home" -> "videos"
-"temp" -> "cache"
-"user" -> "credentials"
-"user" -> "folder"
-"var" -> "oracle"
+"/" -> "A"
 }

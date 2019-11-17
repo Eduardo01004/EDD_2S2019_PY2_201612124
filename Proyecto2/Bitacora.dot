@@ -2,15 +2,11 @@ digraph G{ rankdir=LR;
 node [shape= record, width=.1,height=.1];
 
 nodeTable [label = " 
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:14:50&#92;n Operacion:  Elimino el archivo Header&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:13:09&#92;n Operacion:  Creo el Archivo chrome&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:13:09&#92;n Operacion:  Creo el Archivo Hola&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:13:09&#92;n Operacion:  Creo el Archivo Header&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:13:09&#92;n Operacion:  Creo el Archivo Main&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:12:58&#92;n Operacion:  Creo el Archivo For&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:12:58&#92;n Operacion:  Creo el Archivo Holi&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:12:58&#92;n Operacion:  Creo el Archivo Jojo&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 16/11/2019 Hora: 19:12:58&#92;n Operacion:  Creo el Archivo Archivo&#92;n  Usuario: Eduardo123
-|Fecha: 16/11/2019&#92;n Hora: 19:12:42&#92;n Operacion:  Creo La carpeta A&#92;n  Usuario: Eduardo123
+|TimeStamp: Fecha: 16/11/2019 Hora: 22:11:08&#92;n Operacion:  Creo el Archivo For&#92;n  Usuario: Eduardo123
+|TimeStamp: Fecha: 16/11/2019 Hora: 22:11:08&#92;n Operacion:  Creo el Archivo chrome&#92;n  Usuario: Eduardo123
+|TimeStamp: Fecha: 16/11/2019 Hora: 22:11:08&#92;n Operacion:  Creo el Archivo Hola&#92;n  Usuario: Eduardo123
+|TimeStamp: Fecha: 16/11/2019 Hora: 22:11:08&#92;n Operacion:  Creo el Archivo Header&#92;n  Usuario: Eduardo123
+|TimeStamp: Fecha: 16/11/2019 Hora: 22:11:08&#92;n Operacion:  Creo el Archivo Main&#92;n  Usuario: Eduardo123
+|Fecha: 16/11/2019&#92;n Hora: 22:10:51&#92;n Operacion:  Creo La carpeta A&#92;n  Usuario: Eduardo123
 "];
 }

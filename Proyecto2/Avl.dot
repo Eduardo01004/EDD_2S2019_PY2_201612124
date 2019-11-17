@@ -4,18 +4,14 @@ graph [splines=compound, nodesep=0.5];
 
 node [shape=record, style=filled,fillcolor=seashell2,width=0.7,height=0.2];
 
-Archivo[label="<C0>|Nombre: Archivo&#92;n Contenido: Es un archivo&#92;n Extension: py&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 19:12:58 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
-For[label="<C0>|Nombre: For&#92;n Contenido: Tiene que salir esto en el archivo!!!&#92;n Extension: exe&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 19:13:09 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
-For->Hola
-For->Archivo
-Hola[label="<C0>|Nombre: Hola&#92;n Contenido: Hola Mundo!!!!&#92;n Extension: txt&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 19:13:09 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
-Holi[label="<C0>|Nombre: Holi&#92;n Contenido: Hola Mundo!!!!&#92;n Extension: txt&#92;n FE: 0&#92;n Altura: 2&#92;n TimeStamp: 19:12:58 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
-Holi->Main
-Holi->For
-Jojo[label="<C0>|Nombre: Jojo&#92;n Contenido: este es un archivo cabecera&#92;n Extension: main&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 19:12:58 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
-Main[label="<C0>|Nombre: Main&#92;n Contenido: Python Script&#92;n Extension: py&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 19:13:09 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
+For[label="<C0>|Nombre: For&#92;n Contenido: Tiene que salir esto en el archivo!!!&#92;n Extension: exe&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 22:11:08 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
+Header[label="<C0>|Nombre: Header&#92;n Contenido: este es un archivo cabecera&#92;n Extension: py&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 22:11:08 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
+Header->For
+Hola[label="<C0>|Nombre: Hola&#92;n Contenido: Hola Mundo!!!!&#92;n Extension: txt&#92;n FE: 0&#92;n Altura: 2&#92;n TimeStamp: 22:11:08 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
+Hola->Main
+Hola->Header
+Main[label="<C0>|Nombre: Main&#92;n Contenido: Python Script&#92;n Extension: py&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 22:11:08 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
 Main->chrome
-Main->Jojo
-chrome[label="<C0>|Nombre: chrome&#92;n Contenido: Este es un archivo ejecutable&#92;n Extension: exe&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 19:13:09 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
+chrome[label="<C0>|Nombre: chrome&#92;n Contenido: Este es un archivo ejecutable&#92;n Extension: exe&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 22:11:08 16/11/2019&#92;n Propietario: Eduardo123|<C1>"];
 }
 

@@ -354,7 +354,7 @@ public class Matriz {
                    if(aux.carpeta.compareTo("/") == 0 && nodo.x.compareTo("/") == 0){
                        pw.println("\""+aux.carpeta+  "\" -> \"" +nodo.x+"\"[style=invis]");
                    }else{
-                   pw.println("\""+aux.carpeta+  "\" -> \"" +nodo.x+"\"");
+                       pw.println("\""+aux.carpeta+  "\" -> \"" +nodo.x+"\"");
                    }
                    nodo=nodo.arriba;
                 }

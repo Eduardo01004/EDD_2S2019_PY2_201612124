@@ -142,6 +142,10 @@ public class Crear_Carpeta extends javax.swing.JFrame {
             nodo.matriz.Grafo();
             hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: " +hourFormat.format(date), " Creo La carpeta " + file, " Usuario: "+ Metodos.getNombre_user());
             hash.bitacora.Graficar();
+            JOptionPane.showMessageDialog(null, "Carpeta Creada con exito");
+            Manejo_Archivos archi = new Manejo_Archivos();
+            archi.setVisible(true);
+            dispose();
         }else{
             JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
         }
