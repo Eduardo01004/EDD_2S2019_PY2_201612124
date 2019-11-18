@@ -4,8 +4,10 @@ graph [splines=compound, nodesep=0.5];
 
 node [shape=record, style=filled,fillcolor=seashell2,width=0.7,height=0.2];
 
-otro_archivo[label="<C0>|Nombre: otro_archivo&#92;n Contenido: asd&#92;n Extension: Sd&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: asd&#92;n Propietario: Usuario|<C1>"];
-un_archivo[label="<C0>|Nombre: un_archivo&#92;n Contenido: asd&#92;n Extension: Sd&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: asd&#92;n Propietario: Usuario|<C1>"];
-un_archivo->otro_archivo
+Archivo[label="<C0>|Nombre: Archivo&#92;n Contenido: Es un archivo&#92;n Extension: py&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 20:18:06 17/11/2019&#92;n Propietario: Juan123|<C1>"];
+Jojo[label="<C0>|Nombre: Jojo&#92;n Contenido: este es un archivo cabecera&#92;n Extension: main&#92;n FE: 0&#92;n Altura: 1&#92;n TimeStamp: 20:18:06 17/11/2019&#92;n Propietario: Juan123|<C1>"];
+Jojo->Modificado
+Jojo->Archivo
+Modificado[label="<C0>|Nombre: Modificado&#92;n Contenido: Este ARchivo se Modifico&#92;n Extension: txt&#92;n FE: 0&#92;n Altura: 0&#92;n TimeStamp: 20:18:06 17/11/2019&#92;n Propietario: Juan123|<C1>"];
 }
 

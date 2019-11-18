@@ -2,11 +2,8 @@ digraph G{ rankdir=LR;
 node [shape= record, width=.1,height=.1];
 
 nodeTable [label = " 
-|TimeStamp: Fecha: 17/11/2019 Hora: 11:19:18&#92;n Operacion:  Modifico el Archivo Holi a Modificado&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 17/11/2019 Hora: 11:18:28&#92;n Operacion:  Creo el Archivo For&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 17/11/2019 Hora: 11:18:28&#92;n Operacion:  Creo el Archivo Holi&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 17/11/2019 Hora: 11:18:28&#92;n Operacion:  Creo el Archivo Jojo&#92;n  Usuario: Eduardo123
-|TimeStamp: Fecha: 17/11/2019 Hora: 11:18:28&#92;n Operacion:  Creo el Archivo Archivo&#92;n  Usuario: Eduardo123
-|Fecha: 17/11/2019&#92;n Hora: 11:18:24&#92;n Operacion:  Creo La carpeta CACA&#92;n  Usuario: Eduardo123
+|TimeStamp: Fecha: 17/11/2019 Hora: 20:48:20&#92;n Operacion:  Creo La carpeta CarCar&#92;n  Usuario: Eduardo123
+|TimeStamp: Fecha: 17/11/2019 Hora: 20:48:13&#92;n Operacion:  Creo La carpeta Car2&#92;n  Usuario: Eduardo123
+|Fecha: 17/11/2019&#92;n Hora: 20:48:05&#92;n Operacion:  Creo La carpeta Car1&#92;n  Usuario: Eduardo123
 "];
 }

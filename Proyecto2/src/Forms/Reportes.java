@@ -13,9 +13,12 @@ import Estructuras.TablaHash.TablaHash;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,6 +31,10 @@ public class Reportes extends javax.swing.JFrame {
      * Creates new form Reportes
      */
     Insert_Hash hash;
+    Metodos metodo;
+    byte[] imagen;
+    File archivo;
+    FileInputStream entrada;
     public Reportes() {
         initComponents();
         setLocationRelativeTo(null);
@@ -44,12 +51,13 @@ public class Reportes extends javax.swing.JFrame {
     private void initComponents() {
 
         btn_hash = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btn_matriz = new javax.swing.JButton();
         brn_avl = new javax.swing.JButton();
         btn_grafo = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btn_Bitacora = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Reportes");
@@ -97,23 +105,24 @@ public class Reportes extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setViewportView(jLabel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btn_hash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_matriz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(brn_avl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_grafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btn_Bitacora))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_hash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_matriz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(brn_avl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_grafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Bitacora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,30 +137,45 @@ public class Reportes extends javax.swing.JFrame {
                 .addComponent(btn_grafo)
                 .addGap(45, 45, 45)
                 .addComponent(btn_Bitacora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(115, 115, 115))
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public byte[] Imagen(File Archivo){
+        byte[] img = new byte[1024*10000];
+        try{
+        entrada = new FileInputStream(Archivo);
+        entrada.read(img);
+        }catch(Exception x){
+            
+        }
+        return img;  
+    }
+    
     private void btn_hashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hashActionPerformed
-        ImageIcon img = new ImageIcon("HashTable.png"); 
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
-        jLabel1.setIcon(icono);
-        jLabel1.repaint();
+        archivo = new File("HashTable.png");
+            imagen = Imagen(archivo);
+            jLabel1.setIcon(new ImageIcon(imagen));
+
     }//GEN-LAST:event_btn_hashActionPerformed
 
     private void btn_matrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_matrizActionPerformed
- 
-            ImageIcon img=new ImageIcon("Matriz.png"); 
-            ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
-            jLabel1.setIcon(icono);           
+        NodoHash nodo = hash.tabla.extraerNodo(Metodos.getNombre_user());
+        if (nodo != null){
+            nodo.matriz.Graficar();
+            archivo = new File("Matriz.png");
+            imagen = Imagen(archivo);
+            jLabel1.setIcon(new ImageIcon(imagen));
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
+        }
     }//GEN-LAST:event_btn_matrizActionPerformed
 
     private void brn_avlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_avlActionPerformed
@@ -161,9 +185,9 @@ public class Reportes extends javax.swing.JFrame {
             if (temp != null){
                 temp.arbol.GraficarAVL(Metodos.getNombre_user());
                 aux.matriz.Grafo();
-                ImageIcon img=new ImageIcon("Avl.png"); 
-                ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
-                jLabel1.setIcon(icono);
+                archivo = new File("Avl.png");
+                imagen = Imagen(archivo);
+                jLabel1.setIcon(new ImageIcon(imagen));
             }
             else {
                 JOptionPane.showMessageDialog(null, "No se encuentra la direccion");
@@ -175,9 +199,17 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_brn_avlActionPerformed
 
     private void btn_grafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafoActionPerformed
-        ImageIcon img=new ImageIcon("Grafo.png"); 
-        ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
-        jLabel1.setIcon(icono);  
+        NodoHash nodo = hash.tabla.extraerNodo(Metodos.getNombre_user());
+        if (nodo != null){
+            nodo.matriz.Grafo();
+            archivo = new File("Grafo.png");
+            imagen = Imagen(archivo);
+            jLabel1.setIcon(new ImageIcon(imagen));
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
+        }
+        
     }//GEN-LAST:event_btn_grafoActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -187,9 +219,13 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btn_BitacoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BitacoraActionPerformed
-        ImageIcon img=new ImageIcon("Bitacora.png"); 
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
-        jLabel1.setIcon(icono);
+        /*ImageIcon img=new ImageIcon("Bitacora.png"); 
+        //Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
+        jLabel1.setIcon(img);
+        jLabel1.repaint();*/
+        archivo = new File("Bitacora.png");
+            imagen = Imagen(archivo);
+            jLabel1.setIcon(new ImageIcon(imagen));
     }//GEN-LAST:event_btn_BitacoraActionPerformed
 
     /**
@@ -235,6 +271,7 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JButton btn_matriz;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
    

@@ -1,6 +1,4 @@
 digraph G{rankdir=LR;
  graph [splines=ortho, nodesep=0.5];
 node [shape=ellipse, style=filled]
-"/" -> "/"[style=invis]
-"/" -> "CACA"
 }

@@ -88,6 +88,11 @@ public class Manejo_Archivos extends javax.swing.JFrame {
 
         btnMod_Carpeta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\imagenes\\a.png")); // NOI18N
         btnMod_Carpeta.setText("Modificar");
+        btnMod_Carpeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMod_CarpetaActionPerformed(evt);
+            }
+        });
 
         btnDelete_Carpeta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eduardo\\Desktop\\Edd2019\\Proyecto2\\Proyecto2\\imagenes\\delete.png")); // NOI18N
         btnDelete_Carpeta.setText("Eliminar");
@@ -414,6 +419,12 @@ public class Manejo_Archivos extends javax.swing.JFrame {
       descarga.setVisible(true);
       dispose();
     }//GEN-LAST:event_btn_DownloadActionPerformed
+
+    private void btnMod_CarpetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMod_CarpetaActionPerformed
+        Editar_Carpeta carpeta = new Editar_Carpeta();
+        carpeta.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnMod_CarpetaActionPerformed
     
     public void Mostrar_ComboBox(){
         NodoHash nodo=hash.tabla.extraerNodo(Metodos.getNombre_user());

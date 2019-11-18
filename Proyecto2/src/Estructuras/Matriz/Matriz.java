@@ -7,6 +7,7 @@ package Estructuras.Matriz;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -333,8 +334,62 @@ public class Matriz {
         }
         return null;
    }
+   public Cabecera BuscarColumna(String x){
+       Cabecera aux =firstColum;
+       while(aux != null){
+           if (aux.getCarpeta().compareTo(x) == 0){
+               return aux;
+           }
+           aux = aux.getSiguiente();
+       }
+       return null;
+       
+   }
    
-   public void Modificar(){
+   public Cabecera BuscarFila(String y){
+       Cabecera aux =firstF;
+       if (aux != null){
+           while(aux != null){
+                if (aux.getCarpeta().compareTo(y) == 0){
+                    return aux;
+                }
+           aux = aux.getSiguiente();
+           }
+       }
+       
+       return null;
+       
+   }
+   
+   public NodoMatriz BuscarNodos(String y){
+       Cabecera aux = firstF;
+       NodoMatriz temp = aux.primero;
+       if(temp != null){
+           while (temp != null){
+               if(temp.getY().compareTo(y) == 0){
+                   return temp;
+               }
+               temp = temp.arriba;
+           }
+       }
+       
+       return null;
+   }
+   public void Modificar(String x,String y,String name){
+
+           Cabecera aux2 = BuscarColumna(x);
+           if(aux2 != null){
+               NodoMatriz temp = Buscar(x,y);
+               if(temp != null){
+                   aux2.setCarpeta(name);
+                   temp.setY(name);
+               }
+               else{
+                   JOptionPane.showMessageDialog(null, "No se puede encontrar la ruta");
+               }
+           }
+            
+       
        
    }
    

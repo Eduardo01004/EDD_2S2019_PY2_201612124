@@ -124,6 +124,7 @@ public class Crear_Carpeta extends javax.swing.JFrame {
         nodo.matriz.existeX("/");
         nodo.matriz.existeY("/");
         nodo.matriz.guardarMatriz("/", "/");
+        nodo.matriz.Graficar();
         Cabecera aux=nodo.matriz.firstColum;
         while(aux != null){
             CB_Carpeta.addItem(aux.carpeta);
@@ -154,6 +155,7 @@ public class Crear_Carpeta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+//        CB_Carpeta.removeAllItems();
         Manejo_Archivos manejo = new Manejo_Archivos();
         manejo.setVisible(true);
         dispose();

@@ -16,6 +16,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -178,10 +181,16 @@ public class Download_Files extends javax.swing.JFrame {
 
     private void btn_descargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_descargaActionPerformed
         try {
-           FileWriter fichero = new FileWriter(nombre+"."+ext);
+            FileWriter fichero = new FileWriter(nombre+"."+ext);
             fichero.write(contenido);
             JOptionPane.showMessageDialog(null, "Archivo Descargado con exito");
             fichero.close();
+            Date date = new Date();
+            DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date),"Descargo el Archivo "+
+                        nombre+"."+ext,"Usuario: "+Metodos.getNombre_user());
+            hash.bitacora.Graficar();
         } catch (IOException ex) {
             Logger.getLogger(Download_Files.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -189,6 +198,7 @@ public class Download_Files extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_descargaActionPerformed
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
+//        CB_Archivo.removeAllItems();
         Manejo_Archivos manejo = new Manejo_Archivos();
         manejo.setVisible(true);
         dispose();

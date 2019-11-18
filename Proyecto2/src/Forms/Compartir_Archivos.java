@@ -11,6 +11,9 @@ import Estructuras.Inserts.Metodos;
 import Estructuras.Matriz.Cabecera;
 import Estructuras.Matriz.NodoMatriz;
 import Estructuras.TablaHash.NodoHash;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -196,7 +199,7 @@ public class Compartir_Archivos extends javax.swing.JFrame {
             while(aux != null){
                 CB_Padre.addItem(aux.carpeta);
                 CB_Hijo.addItem(aux.carpeta);
-            aux=aux.siguiente;
+                aux=aux.siguiente;
             }
         }else {
             JOptionPane.showMessageDialog(null, "El usuario que ingreso no Existe");
@@ -228,8 +231,14 @@ public class Compartir_Archivos extends javax.swing.JFrame {
         if (nodo != null){
             NodoMatriz aux = nodo.matriz.Buscar("/","/");
             if (aux != null){
+                Date date = new Date();
+                DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 aux.arbol.InsertarAvl(archivo, ext, content, time);
                 JOptionPane.showMessageDialog(null,"\n Archivo Compartido","Listo!!!",JOptionPane.WARNING_MESSAGE);
+                hash.bitacora.Insertar("Fecha: "+dateFormat.format(date)," Hora: "+ hourFormat.format(date),"Compartio el Archivo "+
+                        archivo,"Hsuario: "+Metodos.getNombre_user());
+                hash.bitacora.Graficar();
             }
             else{
                 JOptionPane.showMessageDialog(null,"\n No tiene Carpeta Raiz","ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);

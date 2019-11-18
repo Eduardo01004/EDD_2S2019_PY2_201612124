@@ -22,7 +22,7 @@ public class TablaHash {
     public NodoHash[] vectorHash;//tiene todos los nodos hash
 
     public TablaHash() {
-        this.tamanos = new int[]{7,11,13,19,21,23,27,29,31,33,39,41,43,49,51, 53, 59, 61, 67, 71, 73, 79, 81};//tamaño inicial
+        this.tamanos = new int[]{7,11,13,17,19,21,23,29,31,37,41,43,47,53,59,61,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199};//tamaño inicial
         this.indiceTam = 0;
         this.ocupados = 0;
         this.factorUtil = 75.0f;//para hacer rehashing

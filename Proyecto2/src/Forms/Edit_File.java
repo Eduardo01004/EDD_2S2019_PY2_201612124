@@ -224,13 +224,20 @@ public class Edit_File extends javax.swing.JFrame {
                         txt_extension.setText(temp.getExtension());
                         txt_contenido.setText(temp.getContenido());
                         txt_time.setText(temp.getTimestamp());
+                    }else{
+                        JOptionPane.showMessageDialog(null, "No se encuentra el archivo");
                     }
                        
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se encuentra la direccion");
                 }
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encuentra el usuario");
         }
     }//GEN-LAST:event_CB_FileItemStateChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //CB_File.removeAllItems();
         Manejo_Archivos manejo = new Manejo_Archivos();
         manejo.setVisible(true);
         dispose();

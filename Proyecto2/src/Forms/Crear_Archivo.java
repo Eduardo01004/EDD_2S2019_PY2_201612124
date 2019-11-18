@@ -186,6 +186,8 @@ public class Crear_Archivo extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CargaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //CB_Carpeta2.removeAllItems();
+        //CB_Carpetas.removeAllItems();
         Manejo_Archivos manejo = new Manejo_Archivos();
         manejo.setVisible(true);
         dispose();

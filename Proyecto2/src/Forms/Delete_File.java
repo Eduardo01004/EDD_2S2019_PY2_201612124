@@ -125,6 +125,7 @@ public class Delete_File extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+//        CM_Files.removeAllItems();
         Manejo_Archivos manejo = new Manejo_Archivos();
         manejo.setVisible(true);
         dispose();

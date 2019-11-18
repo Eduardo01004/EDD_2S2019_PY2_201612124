@@ -5,6 +5,8 @@
  */
 package Estructuras.Inserts;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 
@@ -37,6 +39,17 @@ public class Metodos {
     
     
 }
+    
+    public byte[] Imagen(File Archivo){
+        byte[] img = new byte[1024*100];
+        try{
+        FileInputStream entrada = new FileInputStream(Archivo);
+        entrada.read(img);
+        }catch(Exception x){
+            
+        }
+        return img;  
+    }
 
     public static String getNombre_user() {
         return nombre_user;

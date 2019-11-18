@@ -52,8 +52,10 @@ public class mainMatrix {
         matrix.guardarMatriz("oracle", "var");
         matrix.guardarMatriz("cache", "temp");
         
+        matrix.Modificar("home","videos", "nuevaCarpeta");
         matrix.Grafo();
         matrix.Graficar();
+        
         
         
             
