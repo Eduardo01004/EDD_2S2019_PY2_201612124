@@ -10,7 +10,7 @@ nombres de carpetas y archivos ya creados. La aplicación debe de ser responsiva
 * [Javacsv] (https://www.csvreader.com/java_csv.php)
 
 ## Contribuyendo 🖇️
-Please read [CONTRIBUTING.md] for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/Eduardo01004/EDD_2S2019_PY2_201612124/issues) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Autor ✒️
 * **Eduardo Tun** - *Proyecto 2 Estrucutras de Datos* - [Eduardo01004](https://github.com/Eduardo01004)
