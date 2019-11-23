@@ -5,12 +5,12 @@ nombres de carpetas y archivos ya creados. La aplicación debe de ser responsiva
 
 ### Pre-requisitos 📋
 
-_Netbeans 11 (https://netbeans.org/) _
-_ Graphviz (http://www.graphviz.org/) (Instalar en el Path del sistema)_
-_libreria Javacsv (https://www.csvreader.com/java_csv.php)_
+* [Netbeans 11] (https://netbeans.org/) 
+* [Graphviz] (http://www.graphviz.org/) (Instalar en el Path del sistema)
+* [Javacsv] (https://www.csvreader.com/java_csv.php)
 
 ## Contribuyendo 🖇️
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md] for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Autor ✒️
 * **Eduardo Tun** - *Proyecto 2 Estrucutras de Datos* - [Eduardo01004](https://github.com/Eduardo01004)
